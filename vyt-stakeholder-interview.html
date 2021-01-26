@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, maximum-scale=1.0" />
+    <link rel="shortcut icon" href="./img/favicon.png" />
+    <meta name="og:type" content="website" />
+    <meta name="twitter:card" content="photo" />
+    <link rel="stylesheet" type="text/css" href="css/vyt-stakeholder-interview.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Roboto:900italic,900,400italic,700,700italic,400,500,100|Open+Sans:400,700,300");
+
+      @font-face {
+        font-family: "Georgia-Bold";
+        font-style: normal;
+        font-weight: 700;
+        src: url("https://anima-uploads.s3.amazonaws.com/590905bc9bd1e9000d9686fa/Georgia Bold.ttf") format("truetype");
+      }
+
+      @font-face {
+        font-family: "TimesNew Roman-Regular";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://anima-uploads.s3.amazonaws.com/projects/600201395e38331e891a9630/fonts/times-new-roman-bold.ttf")
+          format("truetype");
+      }
+
+      @font-face {
+        font-family: "DIN2014-Regular";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://anima-uploads.s3.amazonaws.com/5c51769416943b00093de681/.32227.otf") format("opentype");
+      }
+
+      @font-face {
+        font-family: "DIN2014-Demi";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://anima-uploads.s3.amazonaws.com/5c51e22bb5ab7e000d6651e5/.32228.otf") format("opentype");
+      }
+
+      @font-face {
+        font-family: "Georgia-Regular";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://anima-uploads.s3.amazonaws.com/5b67d5a956b8fc000b80d14f/Georgia.ttf") format("truetype");
+      }
+
+      @font-face {
+        font-family: "TimesNew Roman-Bold";
+        font-style: normal;
+        font-weight: 700;
+        src: url("https://anima-uploads.s3.amazonaws.com/projects/5fcadb7f54e48fdb06457d35/files/times.ttf")
+          format("truetype");
+      }
+
+      .component-wrapper a,
+      .screen a {
+        text-decoration: none;
+        display: contents;
+      }
+
+      .full-width-a {
+        width: 100%;
+      }
+
+      .full-height-a {
+        height: 100%;
+      }
+
+      .screen textarea:focus,
+      .screen input:focus {
+        outline: none;
+      }
+
+      .screen *,
+      .component-wrapper * {
+        box-sizing: border-box;
+      }
+
+      .screen div {
+        -webkit-text-size-adjust: none;
+      }
+
+      .container-center-vertical,
+      .container-center-horizontal {
+        pointer-events: none;
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        margin: 0;
+      }
+
+      .container-center-vertical {
+        align-items: center;
+        height: 100%;
+      }
+
+      .container-center-horizontal {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .container-center-vertical > *,
+      .container-center-horizontal > * {
+        pointer-events: auto;
+        flex-shrink: 0;
+      }
+
+      .component-wrapper,
+      .screen {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-all;
+        word-break: break-word;
+      }
+
+      .auto-animated div {
+        opacity: 0;
+        position: absolute;
+        --z-index: -1;
+      }
+
+      .auto-animated .container-center-vertical,
+      .auto-animated .container-center-horizontal {
+        opacity: 1;
+      }
+
+      .overlay {
+        position: absolute;
+        opacity: 0;
+        display: none;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+      }
+
+      .animate-appear {
+        opacity: 0;
+        display: block;
+        animation: reveal 0.3s ease-in-out 1 normal forwards;
+      }
+
+      .animate-disappear {
+        opacity: 1;
+        display: block;
+        animation: reveal 0.3s ease-in-out 1 reverse forwards;
+      }
+
+      .animate-nodelay {
+        animation-delay: 0s;
+      }
+
+      @keyframes reveal {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .align-self-flex-start {
+        align-self: flex-start;
+      }
+      .align-self-flex-end {
+        align-self: flex-end;
+      }
+      .align-self-flex-center {
+        align-self: center;
+      }
+      .valign-text-middle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .valign-text-bottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+      input:focus {
+        outline: none;
+      }
+      .component-wrapper,
+      .component-wrapper * {
+        pointer-events: none;
+      }
+
+      .component-wrapper a *,
+      .component-wrapper a,
+      .component-wrapper input,
+      .component-wrapper video,
+      .component-wrapper iframe,
+      .listeners-active,
+      .listeners-active * {
+        pointer-events: auto;
+      }
+
+      .hidden,
+      .hidden * {
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .smart-layers-pointers,
+      .smart-layers-pointers * {
+        pointer-events: auto;
+        visibility: visible;
+      }
+
+      .component-wrapper.not-ready,
+      .component-wrapper.not-ready * {
+        visibility: hidden !important;
+      }
+
+      .listeners-active-click,
+      .listeners-active-click * {
+        cursor: pointer;
+      }
+    </style>
+    <meta name="author" content="AnimaApp.com - Design to code, Automated." />
+  </head>
+  <body style="margin: 0; background: rgba(28, 30, 33, 1)">
+    <input type="hidden" id="anPageName" name="page" value="vyt-stakeholder-interview" />
+    <div class="container-center-horizontal">
+      <div class="vyt-stakeholder-interview screen">
+        <a href="vyt.html">
+          <div class="component-1-16-C61RwL">
+            <div class="component-4-1-DQIHcd"><div class="return-kQOClx roboto-bold-bon-jour-30px">Return</div></div>
+          </div></a
+        >
+        <div class="stakeholde-feel-value-C61RwL">
+          <span class="span0-OjXU0d"
+            >Stakeholder Interview<br />Madolyn Whitmer - Director of Education &amp; Outreach<br /></span
+          ><span class="span1-OjXU0d"
+            ><br />1) What are the main goals of your non-profit?<br />Bring in children from all walks of life to
+            experience the performing arts and all the benefits of that, build confidence, feel value, and find a
+            community.<br />Do this in a variety of ways - through shows that students can participate for free and make
+            sure that every student is able to participate in our shows.<br />Educational programming - Classes take
+            place throughout the week.<br />Several initiatives to give back to the community including, Literacy and
+            arts program - bring student to the theatre for a free field trip experience, watch the show, get a book,
+            and study guide (educational component).<br /><br />2) Who is your primary audience?<br />Parents - seeing
+            if classes are available, what plays are out there<br />Donors - grants &amp; donations from the
+            community<br />Customers - attending the shows<br /><br />3) What are some goals your non-profit hopes to
+            accomplish in the next year to five years?<br />Hard to say now because of COVID<br />Want to move forward
+            and have a dream to have a new and larger facility that would bring in more people, be able to grow our
+            mission<br />Bring VYT to as many children as possible<br />Increase their reach<br /><br />4) Are there any
+            frequency asked questions you receive that may or may not already be addressed somewhere on the website?<br />A
+            lot of opportunities for user friendly things<br />A lot of questions received are already on the website<br />Doesn’t
+            often get questions for things not on the website<br />Classes, schedules<br />Hard to figure out how to
+            sign up for classes on the site<br />Parents don’t have a lot of time to figure out what to click on and
+            where to find information<br /><br />5) What do you like about the website? What do you not like?<br />There
+            is so much - which is fair because they do a lot<br />There are central things that should be highlighted<br />Current
+            main source of revenue is classes due to COVID<br />Takes a while to get to Classes<br />Usability to
+            highlight main things<br />Donors is important too but doesn’t feel like they go through the website
+            often<br />Don’t know how to access auditions and audition forms<br /><br />6) What is your &#34;website
+            wishlist&#34;?<br />Some kind of usability<br />Thinks it’s really difficult for someone to find Winter
+            Classes, for instance, and feels like it isn’t very clear what to do from there<br />Pages were built and
+            modified off of a basic template<br />The potential to have a “Start Here” section to walk through what they
+            need to do and where they need to go - easy start guide<br /><br />7) How do most parents contact your
+            organization to get signed up? Do they go through the website primarily?<br />Lot of places where they can
+            contact her for Education<br />Gets emails about classes, redirects them back to the site where all that
+            info is at<br />Receives a lot of emails through the box office, confusion around education and auditions<br />Mostly
+            email inquiries<br /><br />8) How does your non-profit solicit donations?<br />Have campaigns done
+            throughout the year<br />Special events<br />VYTal Affair (main fundraising event)<br />End of the Year
+            Campaign<br />Call to Actions at the start of the year to ask people to be donors throughout the year for a
+            certain dollar amount<br />Lots of grant works<br />Show sponsorships<br />Feels it is difficult to procure
+            donors from a website<br />Think focusing on the mission, videos and images of children enjoying the
+            programming would be more impactful<br />Website is part of the marketing mix, part of the pie, needs to be
+            doing it’s job<br /><br />9) Who do you consider your direct competitors for your donation dollars?<br />Child’s
+            Play<br />Grease Paint<br />East Valley<br />All the folks who are in the children’s theatre business near
+            us<br /><br />Other notes<br />All donors are currently being showcased on the homepage because of an
+            ongoing initiative, it isn’t typically like this<br />Callboard - announcements of casting, who is being
+            picked to play in what productions<br />Parents at 4pm, have five minutes to get registration in - notes for
+            persona<br />Ticketing site that they run through for classes, tickets, and donations needs a lot of work
+            too<br />A lot of the audience are senior citizens, grandparents, older members of the community - the more
+            user friendly, the more impactful<br />Potential user testing tasks:<br />Ticketing<br />Signing up for
+            classes<br />Donating<br />Difference between classes &amp; auditions?<br />Classes<br />Learning about the
+            arts<br />Identify if they have a passion for it<br />More process oriented<br />Hone one’s skills<br />Have
+            audition-style classes<br />Inclusion, find your spot<br />Fan the flame for the performing arts<br />Not
+            meant to be a pipeline for the auditions<br />Auditions<br />Always open call<br />Anyone in a class can do
+            an audition, but not guaranteed to get into the shows if enrolled<br
+          /></span>
+        </div>
+        <a href="vyt.html">
+          <div class="component-1-24-C61RwL">
+            <div class="component-4-1-ZIznxo"><div class="return-WTqHlL roboto-bold-bon-jour-30px">Return</div></div>
+          </div></a
+        >
+      </div>
+    </div>
+  </body>
+</html>

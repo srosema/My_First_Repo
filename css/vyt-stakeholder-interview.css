@@ -1,0 +1,179 @@
+/* screen - vyt-stakeholder-interview */
+
+.din2014-demi-normal-dove-gray-20px {
+  color: var(--dove-gray);
+  font-family: 'DIN2014-Demi', Helvetica, Arial, serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+}
+.din2014-regular-normal-white-11px {
+  color: var(--white);
+  font-family: 'DIN2014-Regular', Helvetica, Arial, serif;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+}
+.dove-gray-border-1px {
+  border: 1px solid var(--dove-gray);
+}
+.gray-border-3px {
+  border: 3px solid var(--gray);
+}
+.roboto-black-perano-40px {
+  color: rgba(164,175,242,1.0);
+  font-family: 'Roboto', Helvetica, Arial, serif;
+  font-size: 40px;
+  font-style: italic;
+  font-weight: 900;
+}
+.roboto-bold-bon-jour-30px {
+  color: var(--bon-jour);
+  font-family: 'Roboto', Helvetica, Arial, serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+}
+.roboto-normal-bon-jour-20px {
+  color: var(--bon-jour);
+  font-family: 'Roboto', Helvetica, Arial, serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+}
+.roboto-normal-bon-jour-40px {
+  color: var(--bon-jour);
+  font-family: 'Roboto', Helvetica, Arial, serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+}
+.roboto-normal-bon-jour-40px-2 {
+  color: var(--bon-jour);
+  font-family: "Roboto", Helvetica, Arial, serif;
+  font-size: 40px;
+}
+.roboto-normal-bon-jour-60px {
+  color: var(--bon-jour);
+  font-family: 'Roboto', Helvetica, Arial, serif;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 400;
+}
+.roboto-normal-outer-space-31px {
+  color: var(--outer-space);
+  font-family: 'Roboto', Helvetica, Arial, serif;
+  font-size: 31px;
+  font-style: normal;
+  font-weight: 400;
+}
+.scampi-border-0-5px {
+  border: 0.5px solid var(--scampi);
+}
+.timesnewroman-regular-normal-storm-dust-19px {
+  color: var(--storm-dust);
+  font-family: 'TimesNew Roman-Regular', Helvetica, Arial, serif;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+}
+.vyt-stakeholder-interview {
+  background-color: rgba(28,30,33,1.0);
+  height: 6192px;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 1920px;
+}
+.vyt-stakeholder-interview .component-1-16-C61RwL {
+  background-color: transparent;
+  height: 37px;
+  left: 1748px;
+  position: absolute;
+  top: 60px;
+  width: 90px;
+}
+.vyt-stakeholder-interview .component-1-24-C61RwL {
+  background-color: transparent;
+  height: 37px;
+  left: 1730px;
+  position: absolute;
+  top: 6079px;
+  width: 90px;
+}
+.vyt-stakeholder-interview .component-4-1-DQIHcd {
+  background-color: transparent;
+  height: 100%;
+  left: 0px;
+  position: relative;
+  top: 0px;
+  width: 100%;
+}
+.vyt-stakeholder-interview .component-4-1-ZIznxo {
+  background-color: transparent;
+  height: 100%;
+  left: 0px;
+  position: relative;
+  top: 0px;
+  width: 100%;
+}
+.vyt-stakeholder-interview .return-WTqHlL {
+  background-color: transparent;
+  height: calc(100.00% + 2px);
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 30px;
+  position: absolute;
+  text-align: center;
+  top: 4px;
+  white-space: nowrap;
+  width: calc(100.00% + 2px);
+}
+.vyt-stakeholder-interview .return-kQOClx {
+  background-color: transparent;
+  height: calc(100.00% + 2px);
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 30px;
+  position: absolute;
+  text-align: center;
+  top: 4px;
+  white-space: nowrap;
+  width: calc(100.00% + 2px);
+}
+.vyt-stakeholder-interview .span0-OjXU0d {
+  font-family: 'Roboto', Helvetica, Arial, serif;
+  font-style: normal;
+  font-weight: 900;
+}
+.vyt-stakeholder-interview .span1-OjXU0d {
+  font-family: 'Roboto', Helvetica, Arial, serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.vyt-stakeholder-interview .stakeholde-feel-value-C61RwL {
+  background-color: transparent;
+  color: var(--bon-jour);
+  font-family: "Roboto", Helvetica, Arial, serif;
+  font-size: 45px;
+  height: auto;
+  left: 129px;
+  letter-spacing: 0.00px;
+  line-height: 45px;
+  position: absolute;
+  text-align: left;
+  top: 157px;
+  width: 1666px;
+}
+:root {
+  --alto: rgba(219,219,219,1.0);
+  --bon-jour: rgba(226,226,226,1.0);
+  --dove-gray: rgba(112,112,112,1.0);
+  --gray: rgba(145,145,145,1.0);
+  --minsk: rgba(56,54,128,1.0);
+  --outer-space: rgba(46,50,59,1.0);
+  --scampi: rgba(84,92,166,1.0);
+  --storm-dust: rgba(100,100,100,1.0);
+  --sundance: rgba(209,180,87,1.0);
+  --white: rgba(255,255,255,1.0);
+}

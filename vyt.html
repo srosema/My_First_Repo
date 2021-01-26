@@ -1,0 +1,2712 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, maximum-scale=1.0" />
+    <link rel="shortcut icon" href="./img/favicon.png" />
+    <meta name="og:type" content="website" />
+    <meta name="twitter:card" content="photo" />
+    <link rel="stylesheet" type="text/css" href="css/vyt.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Roboto:900italic,900,400italic,700,700italic,400,500,100|Open+Sans:400,700,300");
+
+      @font-face {
+        font-family: "Georgia-Bold";
+        font-style: normal;
+        font-weight: 700;
+        src: url("https://anima-uploads.s3.amazonaws.com/590905bc9bd1e9000d9686fa/Georgia Bold.ttf") format("truetype");
+      }
+
+      @font-face {
+        font-family: "TimesNew Roman-Regular";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://anima-uploads.s3.amazonaws.com/projects/600201395e38331e891a9630/fonts/times-new-roman-bold.ttf")
+          format("truetype");
+      }
+
+      @font-face {
+        font-family: "DIN2014-Regular";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://anima-uploads.s3.amazonaws.com/5c51769416943b00093de681/.32227.otf") format("opentype");
+      }
+
+      @font-face {
+        font-family: "DIN2014-Demi";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://anima-uploads.s3.amazonaws.com/5c51e22bb5ab7e000d6651e5/.32228.otf") format("opentype");
+      }
+
+      @font-face {
+        font-family: "Georgia-Regular";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://anima-uploads.s3.amazonaws.com/5b67d5a956b8fc000b80d14f/Georgia.ttf") format("truetype");
+      }
+
+      @font-face {
+        font-family: "TimesNew Roman-Bold";
+        font-style: normal;
+        font-weight: 700;
+        src: url("https://anima-uploads.s3.amazonaws.com/projects/5fcadb7f54e48fdb06457d35/files/times.ttf")
+          format("truetype");
+      }
+
+      .component-wrapper a,
+      .screen a {
+        text-decoration: none;
+        display: contents;
+      }
+
+      .full-width-a {
+        width: 100%;
+      }
+
+      .full-height-a {
+        height: 100%;
+      }
+
+      .screen textarea:focus,
+      .screen input:focus {
+        outline: none;
+      }
+
+      .screen *,
+      .component-wrapper * {
+        box-sizing: border-box;
+      }
+
+      .screen div {
+        -webkit-text-size-adjust: none;
+      }
+
+      .container-center-vertical,
+      .container-center-horizontal {
+        pointer-events: none;
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        margin: 0;
+      }
+
+      .container-center-vertical {
+        align-items: center;
+        height: 100%;
+      }
+
+      .container-center-horizontal {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .container-center-vertical > *,
+      .container-center-horizontal > * {
+        pointer-events: auto;
+        flex-shrink: 0;
+      }
+
+      .component-wrapper,
+      .screen {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-all;
+        word-break: break-word;
+      }
+
+      .auto-animated div {
+        opacity: 0;
+        position: absolute;
+        --z-index: -1;
+      }
+
+      .auto-animated .container-center-vertical,
+      .auto-animated .container-center-horizontal {
+        opacity: 1;
+      }
+
+      .overlay {
+        position: absolute;
+        opacity: 0;
+        display: none;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+      }
+
+      .animate-appear {
+        opacity: 0;
+        display: block;
+        animation: reveal 0.3s ease-in-out 1 normal forwards;
+      }
+
+      .animate-disappear {
+        opacity: 1;
+        display: block;
+        animation: reveal 0.3s ease-in-out 1 reverse forwards;
+      }
+
+      .animate-nodelay {
+        animation-delay: 0s;
+      }
+
+      @keyframes reveal {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .align-self-flex-start {
+        align-self: flex-start;
+      }
+      .align-self-flex-end {
+        align-self: flex-end;
+      }
+      .align-self-flex-center {
+        align-self: center;
+      }
+      .valign-text-middle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .valign-text-bottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+      input:focus {
+        outline: none;
+      }
+      .component-wrapper,
+      .component-wrapper * {
+        pointer-events: none;
+      }
+
+      .component-wrapper a *,
+      .component-wrapper a,
+      .component-wrapper input,
+      .component-wrapper video,
+      .component-wrapper iframe,
+      .listeners-active,
+      .listeners-active * {
+        pointer-events: auto;
+      }
+
+      .hidden,
+      .hidden * {
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .smart-layers-pointers,
+      .smart-layers-pointers * {
+        pointer-events: auto;
+        visibility: visible;
+      }
+
+      .component-wrapper.not-ready,
+      .component-wrapper.not-ready * {
+        visibility: hidden !important;
+      }
+
+      .listeners-active-click,
+      .listeners-active-click * {
+        cursor: pointer;
+      }
+    </style>
+    <meta name="author" content="AnimaApp.com - Design to code, Automated." />
+  </head>
+  <body style="margin: 0; background: rgba(28, 30, 33, 1)">
+    <input type="hidden" id="anPageName" name="page" value="vyt" />
+    <div class="container-center-horizontal">
+      <div class="vyt screen">
+        <img class="path-5389-C61RwL" src="img/path-5389@1x.png" />
+        <div class="group-484-C61RwL">
+          <div class="group-472-xJndx7 scampi-border-0-5px">
+            <img class="path-5390-xIVkaC" src="img/path-5390@1x.png" />
+          </div>
+          <div class="group-474-xJndx7 scampi-border-0-5px">
+            <img class="path-5390-nSvczV" src="img/path-5390@1x.png" />
+          </div>
+          <div class="group-475-xJndx7 scampi-border-0-5px">
+            <img class="path-5390-x2vjPE" src="img/path-5390@1x.png" />
+          </div>
+          <div class="group-476-xJndx7 scampi-border-0-5px">
+            <img class="path-5390-Oe7A9Q" src="img/path-5390@1x.png" />
+          </div>
+          <div class="group-477-xJndx7 scampi-border-0-5px">
+            <img class="path-5390-emx3xA" src="img/path-5390@1x.png" />
+          </div>
+          <div class="group-478-xJndx7 scampi-border-0-5px">
+            <img class="path-5390-6h3RlO" src="img/path-5390@1x.png" />
+          </div>
+          <div class="group-479-xJndx7 scampi-border-0-5px">
+            <img class="path-5390-OVxo9s" src="img/path-5390@1x.png" />
+          </div>
+          <div class="group-480-xJndx7 scampi-border-0-5px">
+            <img class="path-5390-Ngifcu" src="img/path-5390@1x.png" />
+          </div>
+          <div class="group-481-xJndx7 scampi-border-0-5px">
+            <img class="path-5390-px3zwJ" src="img/path-5390@1x.png" />
+          </div>
+          <div class="group-482-xJndx7 scampi-border-0-5px">
+            <img class="path-5390-nOSHcp" src="img/path-5390@1x.png" />
+          </div>
+          <div class="group-483-xJndx7 scampi-border-0-5px">
+            <img class="path-5390-pd2ge3" src="img/path-5390@1x.png" />
+          </div>
+        </div>
+        <div class="group-473-C61RwL scampi-border-0-5px">
+          <img class="path-5390-Odaxj6" src="img/path-5390@1x.png" />
+        </div>
+        <div class="group-470-C61RwL scampi-border-0-5px">
+          <img class="path-5390-AJtPU5" src="img/path-5390@1x.png" />
+        </div>
+        <div class="group-469-C61RwL scampi-border-0-5px">
+          <img class="path-5390-vNRTZA" src="img/path-1020@1x.png" />
+        </div>
+        <div class="rectangle-341-C61RwL scampi-border-0-5px"></div>
+        <div class="rectangle-299-C61RwL"></div>
+        <img class="path-491-C61RwL" src="img/path-491@1x.png" />
+        <div class="component-1-9-C61RwL"><div class="contact-YddvDw roboto-bold-bon-jour-30px">Contact</div></div>
+        <a href="index.html#index">
+          <div class="component-1-10-C61RwL">
+            <div class="component-4-1-wWTIsd"><div class="home-ZyDSEL roboto-bold-bon-jour-30px">Home</div></div>
+          </div></a
+        >
+        <div class="component-2-5-C61RwL"><div class="about-lOdN0x roboto-bold-bon-jour-30px">About</div></div>
+        <div class="component-3-5-C61RwL"><div class="resume-NzUebm roboto-bold-bon-jour-30px">Resume</div></div>
+        <div class="steverosema-C61RwL">Steve<br />Rosema</div>
+        <div class="ux-ui-rese-ddeveloper-C61RwL roboto-normal-bon-jour-40px">
+          UX / UI Researcher,<br />Designer, and<br />Developer.
+        </div>
+        <div class="group-19-C61RwL">
+          <img class="path-53-ebBR7z" src="img/path-53@1x.png" />
+          <img class="path-54-ebBR7z" src="img/path-54@1x.png" />
+          <img class="path-55-ebBR7z" src="img/path-54-4@1x.png" />
+          <img class="path-56-ebBR7z" src="img/path-56@1x.png" />
+          <img class="path-57-ebBR7z" src="img/path-57@1x.png" />
+        </div>
+        <div class="valley-youth-theater-C61RwL roboto-normal-bon-jour-60px">Valley Youth Theater</div>
+        <div class="user-inter-s-research-C61RwL roboto-normal-bon-jour-60px">User Interviews &amp; Research<br /></div>
+        <div class="the-data-C61RwL roboto-normal-bon-jour-60px">The Data<br /></div>
+        <div class="problem-st-propositon-C61RwL roboto-normal-bon-jour-60px">
+          Problem Statement &amp; Value Propositon<br />
+        </div>
+        <div class="proto-pers-er-persona-C61RwL roboto-normal-bon-jour-60px">
+          Proto Persona &gt; User Persona<br />
+        </div>
+        <div class="storyboard-C61RwL roboto-normal-bon-jour-60px">Storyboard<br /></div>
+        <div class="user-journey-map-C61RwL roboto-normal-bon-jour-60px">User Journey Map<br /><br /></div>
+        <div class="card-sorting-C61RwL roboto-normal-bon-jour-60px">Card Sorting<br /><br /></div>
+        <div class="user-flow--am-sitemap-C61RwL roboto-normal-bon-jour-60px">
+          User Flow Diagram &amp; Sitemap<br /><br /><br />
+        </div>
+        <div class="wireframe-sketches-C61RwL roboto-normal-bon-jour-60px">Wireframe Sketches<br /><br /><br /></div>
+        <div class="low-fideli--prototype-C61RwL roboto-normal-bon-jour-60px">Low Fidelity Prototype<br /></div>
+        <div class="mood-board-style-tile-C61RwL roboto-normal-bon-jour-60px">Mood board &amp; UI Style Tile<br /></div>
+        <div class="high-fidel--prototype-C61RwL roboto-normal-bon-jour-60px">High Fidelity Prototype<br /></div>
+        <div class="key-learni-next-steps-C61RwL roboto-normal-bon-jour-60px">
+          Key Learnings &amp; Next Steps<br /><br />
+        </div>
+        <div class="stakeholde-g-analysis-C61RwL roboto-normal-bon-jour-60px">
+          Stakeholder Interview &amp; Site Testing / Analysis <br />
+        </div>
+        <div class="overview-C61RwL roboto-normal-bon-jour-60px">Overview<br /></div>
+        <div class="university-mp-project-C61RwL">University of Arizona UX/UI Bootcamp Project</div>
+        <div class="website-re-case-study-C61RwL">Website Refresh Case Study</div>
+        <div class="the-teamst-eric-smith-C61RwL">
+          <span class="span0-o2nxRV">The Team<br /></span
+          ><span class="span1-o2nxRV">Stephen Rosema<br />Danny Acosta<br />Eric Smith<br /><br /></span>
+        </div>
+        <div class="group-217-C61RwL">
+          <div class="group-208-YXubFO">
+            <img class="path-410-PGbTbx" src="img/path-410@1x.png" />
+            <img class="path-411-PGbTbx" src="img/path-411@1x.png" />
+          </div>
+          <img class="group-209-YXubFO" src="img/group-209@1x.png" />
+          <div class="group-210-YXubFO">
+            <div class="rectangle-105-B5AWx6"></div>
+            <img class="path-425-B5AWx6" src="img/path-425@1x.png" />
+            <img class="rectangle-106-B5AWx6" src="img/rectangle-106@1x.png" />
+            <img class="path-426-B5AWx6" src="img/path-426@1x.png" />
+            <img class="path-427-B5AWx6" src="img/path-427@1x.png" />
+            <img class="path-428-B5AWx6" src="img/path-428@1x.png" />
+            <img class="path-429-B5AWx6" src="img/path-429@1x.png" />
+            <img class="path-430-B5AWx6" src="img/path-430@1x.png" />
+            <img class="path-431-B5AWx6" src="img/path-431@1x.png" />
+            <img class="path-432-B5AWx6" src="img/path-432@1x.png" />
+            <img class="path-433-B5AWx6" src="img/path-433@1x.png" />
+            <img class="path-434-B5AWx6" src="img/path-434@1x.png" />
+            <img class="path-435-B5AWx6" src="img/path-435@1x.png" />
+            <img class="path-436-B5AWx6" src="img/path-435@1x.png" />
+            <img class="path-437-B5AWx6" src="img/path-437@1x.png" />
+            <img class="path-438-B5AWx6" src="img/path-438@1x.png" />
+            <img class="path-439-B5AWx6" src="img/path-439@1x.png" />
+            <img class="path-440-B5AWx6" src="img/path-440@1x.png" />
+            <img class="path-441-B5AWx6" src="img/path-441@1x.png" />
+            <img class="path-442-B5AWx6" src="img/path-439@1x.png" />
+            <img class="path-443-B5AWx6" src="img/path-443@1x.png" />
+            <img class="path-444-B5AWx6" src="img/path-440@1x.png" />
+            <div class="rectangle-107-B5AWx6"></div>
+          </div>
+          <div class="group-211-YXubFO">
+            <div class="rectangle-108-urSxnJ"></div>
+            <img class="path-445-urSxnJ" src="img/path-445@1x.png" />
+            <div class="rectangle-109-urSxnJ"></div>
+            <img class="path-446-urSxnJ" src="img/path-429@1x.png" />
+            <img class="path-447-urSxnJ" src="img/path-430@1x.png" />
+            <img class="path-448-urSxnJ" src="img/path-448@1x.png" />
+            <img class="path-449-urSxnJ" src="img/path-449@1x.png" />
+            <img class="path-450-urSxnJ" src="img/path-450@1x.png" />
+            <img class="path-451-urSxnJ" src="img/path-451@1x.png" />
+            <img class="path-452-urSxnJ" src="img/path-452@1x.png" />
+            <img class="path-453-urSxnJ" src="img/path-453@1x.png" />
+            <img class="path-454-urSxnJ" src="img/path-454@1x.png" />
+            <img class="path-455-urSxnJ" src="img/path-453@1x.png" />
+            <img class="path-456-urSxnJ" src="img/path-438@1x.png" />
+            <img class="path-457-urSxnJ" src="img/path-452@1x.png" />
+            <img class="path-458-urSxnJ" src="img/path-453@1x.png" />
+            <img class="path-459-urSxnJ" src="img/path-459@1x.png" />
+            <div class="rectangle-110-urSxnJ"></div>
+            <img class="path-460-urSxnJ" src="img/path-460@1x.png" />
+            <img class="path-461-urSxnJ" src="img/path-461@1x.png" />
+          </div>
+          <div class="group-212-YXubFO">
+            <div class="rectangle-111-tJVNL1"></div>
+            <img class="path-462-tJVNL1" src="img/path-445@1x.png" />
+            <div class="rectangle-112-tJVNL1"></div>
+            <img class="path-463-tJVNL1" src="img/path-463@1x.png" />
+            <img class="path-464-tJVNL1" src="img/path-464@1x.png" />
+            <img class="path-465-tJVNL1" src="img/path-465@1x.png" />
+            <img class="path-466-tJVNL1" src="img/path-466@1x.png" />
+            <img class="path-467-tJVNL1" src="img/path-467@1x.png" />
+            <img class="path-468-tJVNL1" src="img/path-468@1x.png" />
+            <img class="path-469-tJVNL1" src="img/path-469@1x.png" />
+            <div class="rectangle-113-tJVNL1"></div>
+            <img class="path-470-tJVNL1" src="img/path-470@1x.png" />
+            <img class="path-471-tJVNL1" src="img/path-471@1x.png" />
+          </div>
+          <div class="group-213-YXubFO">
+            <div class="rectangle-114-ZIEIvM"></div>
+            <img class="path-472-ZIEIvM" src="img/path-472@1x.png" />
+            <img class="path-473-ZIEIvM" src="img/path-473@1x.png" />
+            <img class="path-474-ZIEIvM" src="img/path-474@1x.png" />
+          </div>
+          <div class="group-214-YXubFO">
+            <img class="path0-fill-sYwxev" src="img/path0-fill@1x.png" />
+            <img class="path1-fill-sYwxev" src="img/path1-fill@1x.png" />
+            <img class="path2-fill-sYwxev" src="img/path2-fill@1x.png" />
+            <img class="path3-fill-sYwxev" src="img/path3-fill@1x.png" />
+            <img class="path3-fill-fsdUCM" src="img/path3-fill-1@1x.png" />
+            <img class="path-475-sYwxev" src="img/path-475@1x.png" />
+            <img class="path-476-sYwxev" src="img/path-476@1x.png" />
+            <div class="rectangle-115-sYwxev"></div>
+            <img class="path-477-sYwxev" src="img/path-477@1x.png" />
+            <img class="path-478-sYwxev" src="img/path-478@1x.png" />
+          </div>
+          <div class="group-215-YXubFO">
+            <img class="path-479-ovotQM" src="img/path-479@1x.png" />
+            <img class="path-480-ovotQM" src="img/path-480@1x.png" />
+            <img class="path-481-ovotQM" src="img/path-481@1x.png" />
+            <img class="path-482-ovotQM" src="img/path-482@1x.png" />
+            <img class="path-483-ovotQM" src="img/path-483@1x.png" />
+            <img class="path-484-ovotQM" src="img/path-484@1x.png" />
+            <img class="path-485-ovotQM" src="img/path-485@1x.png" />
+            <img class="path-486-ovotQM" src="img/path-486@1x.png" />
+            <img class="path-487-ovotQM" src="img/path-487@1x.png" />
+          </div>
+          <div class="group-216-YXubFO">
+            <img class="path-488-0uTNaV" src="img/path-488@1x.png" />
+            <img class="path-489-0uTNaV" src="img/path-489@1x.png" />
+            <img class="path-490-0uTNaV" src="img/path-490@1x.png" />
+          </div>
+        </div>
+        <div class="the-tools-C61RwL">The Tools</div>
+        <img class="zoom-C61RwL" src="img/zoom@1x.png" />
+        <div class="research-o-ng-tickets-C61RwL roboto-normal-bon-jour-40px-2">
+          <span class="span0-QMuG0R">Research Objectives<br /></span
+          ><span class="span1-QMuG0R"
+            >Charitable donation habits of individuals who support the arts. <br />Goals, needs, and pains points
+            donating, signing up for classes and purchasing tickets.<br
+          /></span>
+        </div>
+        <div class="our-team-c-ll-had-roo-C61RwL roboto-normal-bon-jour-40px">
+          Our team chose a non-profit that has, like so many other organizations that rely on bringing people together
+          for an experience, been hit particularly hard during the pandemic. We felt that their website, while
+          functional and generally usable, still had room for improvement. Some user flows, most notably some involving
+          revenue-generating links, were hard to figure out. To that end we wanted to make sure any services they were
+          still able to provide (i.e. online classes and direct donations) had an improved user flow.
+        </div>
+        <div class="what-did-t-erisk-mean-C61RwL roboto-black-perano-40px">
+          “What did the asterisk <br />mean?” <br />
+        </div>
+        <div class="when-you-s-ad-a-virus-C61RwL roboto-black-perano-40px">
+          “When you scrolled down it looked like <br />it had a virus.”<br />
+        </div>
+        <div class="too-many-words-C61RwL roboto-black-perano-40px">“Too many words.”<br /></div>
+        <div class="i-dont-und--selection-C61RwL roboto-black-perano-40px">
+          “I don’t understand the program <br />donation selection.”<br />
+        </div>
+        <div class="which-one--he-picture-C61RwL roboto-black-perano-40px">
+          “Which one do I click <br />on to buy tickets? The <br />button or the picture?”<br />
+        </div>
+        <div class="how-we-ask-we-also-in-C61RwL roboto-normal-bon-jour-40px-2">
+          <span class="span0-FPl5Zz"><br /></span><span class="span1-FPl5Zz">How We Asked It<br /></span
+          ><span class="span2-FPl5Zz"
+            >In person Via Zoom interviews from&nbsp;&nbsp;ages 35-65, had children or grandchildren, and participated
+            in extracurricular activities.<br />Qualitative - We conducted five in-person interviews as well as user
+            testing on the current website. <br />We also interview stakeholders to determine their objectives.
+            <br />Quantitative - We conducted user surveys with four responses. Check ou</span
+          >
+        </div>
+        <div class="what-we-as-activities-C61RwL roboto-normal-bon-jour-40px-2">
+          <span class="span0-8P1gSB">What We Asked<br /></span
+          ><span class="span1-8P1gSB"
+            >Why do you support these organizations?<br />Do you watch live performances with your children?<br />How
+            often do you pay for extra-curricular classes or education?<br />What is your biggest pain point associated
+            with their<br />extra-curricular activities?<br
+          /></span>
+        </div>
+        <div class="as-a-team--g-up-for-c-C61RwL roboto-normal-bon-jour-40px-2">
+          <span class="span0-7TCger"
+            >As a team we met with Madolyn Whitmer - Director of Education &amp; Outreach at Valley Youth Theater to
+            discuss the current website and their goals as a non-profit. During the interview we discovered we should
+            focus on three things: Ticketing, Signing up for classes, and Donating. For the full interview notes, Click </span
+          ><span class="span1-7TCger">Here</span><span class="span2-7TCger">.<br /><br /></span
+          ><span class="span3-7TCger"
+            >We then proceeded with user testing of the current site as it pertains to the aforementioned areas. We did
+            five user tests on Ticketing, Signing up for classes, and Donating. Here is some of the things they said:<br
+          /></span>
+        </div>
+        <img class="mask-group-3-C61RwL" src="img/mask-group-3@1x.png" />
+        <img class="image-2-C61RwL" src="img/image-2@1x.png" />
+        <img class="project-2--ty-diagram-C61RwL" src="img/project-2---affinity-diagram@1x.png" />
+        <div class="the-data-w--and-figma-C61RwL roboto-normal-bon-jour-40px">
+          The data was collected for sorting, Affinity Diagramming and mapping to glean user insights. In a world of
+          limited contact, we conducted user research via Zoom and collaborated using Miro and Figma.<br />
+        </div>
+        <div class="not-that-t-mpathy-map-C61RwL roboto-normal-bon-jour-40px">
+          Not that the data has been collected and organized we started the process of getting into our users head,
+          creating empathy and developing our user Persona. We started with an Empathy Map.
+        </div>
+        <img class="project-2-combined-C61RwL" src="img/project-2---combined@1x.png" />
+        <div class="group-222-C61RwL">
+          <div class="rectangle-126-Hw8elP dove-gray-border-1px"></div>
+          <div class="rectangle-131-Hw8elP dove-gray-border-1px"></div>
+          <div class="rectangle-133-Hw8elP dove-gray-border-1px"></div>
+          <div class="rectangle-135-Hw8elP dove-gray-border-1px"></div>
+          <div class="rectangle-127-Hw8elP dove-gray-border-1px"></div>
+          <div class="rectangle-130-Hw8elP dove-gray-border-1px"></div>
+          <div class="rectangle-132-Hw8elP dove-gray-border-1px"></div>
+          <div class="rectangle-136-Hw8elP dove-gray-border-1px"></div>
+          <div class="rectangle-128-Hw8elP dove-gray-border-1px"></div>
+          <div class="rectangle-129-Hw8elP dove-gray-border-1px"></div>
+          <div class="rectangle-134-Hw8elP dove-gray-border-1px"></div>
+          <div class="rectangle-137-Hw8elP dove-gray-border-1px"></div>
+          <div class="i-needmore-time-Hw8elP roboto-normal-outer-space-31px">&#34;I need<br />more time!&#34;</div>
+          <div class="tired-Hw8elP roboto-normal-outer-space-31px">Tired</div>
+          <div class="i-wish-i-c--could-nap-Hw8elP roboto-normal-outer-space-31px">
+            &#34;I wish I could<br />send my clone<br />so I could nap.&#34;
+          </div>
+          <div class="concerned--evelopment-Hw8elP roboto-normal-outer-space-31px">
+            Concerned about<br />her children&#39;s<br />development
+          </div>
+          <div class="believesineducation-Hw8elP roboto-normal-outer-space-31px">Believes<br />in<br />education</div>
+          <div class="kidschoaffer-Hw8elP roboto-normal-outer-space-31px">Kids<br />choaffer</div>
+          <div class="wishes-she-orher-kids-Hw8elP roboto-normal-outer-space-31px">
+            Wishes she<br />could do<br />more for<br />her kids
+          </div>
+          <div class="busywith-hercareer-Hw8elP roboto-normal-outer-space-31px">Busy<br />with her<br />career</div>
+          <div class="wishes-she--herspouse-Hw8elP roboto-normal-outer-space-31px">
+            Wishes she<br />got more<br />support<br />from her<br />spouse
+          </div>
+          <div class="sign-kidsu-es-classes-Hw8elP roboto-normal-outer-space-31px">
+            Sign kids<br />up for<br />activates &amp;<br />classes
+          </div>
+          <div class="i-wishextr-ere-easier-Hw8elP roboto-normal-outer-space-31px">
+            &#34;I wish<br />extracurricular<br />activities<br />were easier.&#34;
+          </div>
+          <div class="passionate-ut-thearts-Hw8elP roboto-normal-outer-space-31px">
+            Passionate<br />about the<br />arts
+          </div>
+          <div class="group-218-Hw8elP">
+            <div class="rectangle-138-7jIJxd"></div>
+            <img class="polygon-7-7jIJxd" src="img/polygon-7@1x.png" />
+          </div>
+          <div class="group-220-Hw8elP">
+            <div class="rectangle-138-B6xvh7"></div>
+            <img class="polygon-7-B6xvh7" src="img/polygon-7-1@1x.png" />
+          </div>
+          <div class="group-219-Hw8elP">
+            <div class="rectangle-138-qOREsj"></div>
+            <img class="polygon-7-qOREsj" src="img/polygon-7-2@1x.png" />
+          </div>
+          <div class="group-221-Hw8elP">
+            <div class="rectangle-138-92DJxY"></div>
+            <img class="polygon-7-92DJxY" src="img/polygon-7-3@1x.png" />
+          </div>
+          <div class="says-Hw8elP">Says</div>
+          <div class="feels-Hw8elP">Feels</div>
+          <div class="thinks-Hw8elP">Thinks</div>
+          <div class="does-Hw8elP">Does</div>
+        </div>
+        <div class="rectangle-139-C61RwL"></div>
+        <div class="rectangle-140-C61RwL dove-gray-border-1px"></div>
+        <div class="managingda-lyschedule-C61RwL">Managing<br />Daily<br />schedule</div>
+        <div class="serviceto--rcommunity-C61RwL">Service<br />to her<br />community</div>
+        <div class="findingact-esfor-kids-C61RwL">Finding<br />activities<br />for kids</div>
+        <div class="watching-h-growevolve-C61RwL">Watching <br />her kids<br />grow/evolve</div>
+        <div class="extracurri-enot-cheap-C61RwL">Extracurricular<br />activates are<br />not cheap</div>
+        <div class="gain-a-sen-ulfillment-C61RwL">Gain a sense<br />of meaning<br />&amp; fulfillment</div>
+        <div class="havingtime-forself-C61RwL">Having<br />time for<br />self</div>
+        <div class="keepher-kidsbusy-C61RwL">Keep<br />her kids<br />busy</div>
+        <div class="pain-C61RwL">Pain</div>
+        <div class="gain-C61RwL">Gain</div>
+        <div class="to-further-original-s-C61RwL roboto-normal-bon-jour-40px">
+          To further analyze of the current site we conducted a Heuristic Evaluation. This evaluation process confirmed
+          what we already were seeing at first glance: the website is generally functional but could use a few usability
+          tweaks. Seeing where the original site was weak and where it was strong guided us toward what was important
+          for our design.
+        </div>
+        <img class="image-12-C61RwL" src="img/image-12@1x.png" />
+        <div class="after-inte-e-websites-C61RwL roboto-normal-bon-jour-40px">
+          After interviewing our stakeholder contact, we found out some of the Valley Youth Theatre’s competitors.
+          During this analysis process, we discovered that while VYT’s website had room for improvement, it was already
+          one of the better youth theatre websites we came across. We learned a handful of “do’s” from these competitors
+          and even more “do not’s”<br />
+        </div>
+        <div class="problem-st-ite-layout-C61RwL roboto-normal-bon-jour-40px-2">
+          <span class="span0-hkXM2g">Problem Statement<br /></span
+          ><span class="span1-hkXM2g"
+            >A busy parent feels frustrated about getting her kids involved in theater classes and needs to be able to
+            quickly find information to sign up for classes but faces a challenge of a confusing website layout.<br
+          /></span>
+        </div>
+        <div class="with-a-val-al-product-C61RwL roboto-normal-bon-jour-40px-2">
+          <span class="span0-uSrSlc">With a </span><span class="span1-uSrSlc">Value Proportion</span
+          ><span class="span2-uSrSlc"
+            >, visualizing the actual value your design can bring to the user is possible. Every additional time we use
+            these in UX research, it becomes more and more evident exactly why they’re useful and how they contribute to
+            the final product.</span
+          >
+        </div>
+        <div class="what-can-a--like-that-C61RwL roboto-normal-bon-jour-40px">
+          What can a little bit of data do? We saw our persona go from a sketched out idea of a person to someone who
+          felt like a real user just by incorporating some interview and survey responses. Rebecca went from 2D to 3D
+          just like that. <br />
+        </div>
+        <img class="image-16-C61RwL" src="img/image-16@1x.png" />
+        <img class="proto-persona-C61RwL" src="img/protopersona@1x.png" />
+        <div class="proto-persona-VMr6Om roboto-normal-bon-jour-40px">Proto Persona</div>
+        <div class="user-persona-C61RwL roboto-normal-bon-jour-40px">User Persona</div>
+        <img class="mask-group-4-C61RwL" src="img/mask-group-4@1x.png" />
+        <div class="once-we-fl-needs-best-C61RwL roboto-normal-bon-jour-40px">
+          Once we fleshed out Rebecca’s persona, we were able to thoroughly reflect on her direct user experience with
+          the website. In this storyboard, we picture a scenario that has her using the website in a way that would
+          serve her needs best.
+        </div>
+        <img class="storyboard1-C61RwL" src="img/storyboard1@1x.png" />
+        <div class="rectangle-318-C61RwL"></div>
+        <img class="storyboard2-C61RwL" src="img/storyboard2@1x.png" />
+        <div class="rebecca-is-f-the-arts-C61RwL roboto-normal-bon-jour-20px">
+          Rebecca is looking for an extracurricular activity for her two children. She is a busy parent with a career
+          and a family that take most of her attention and time.<br /><br />Her kids had expressed an interest in acting
+          and the theater. She is a supporter of the arts and thinks that expanding her children&#39;s experience in
+          this area is a great idea.
+        </div>
+        <div class="rebecca-ea-erformance-C61RwL roboto-normal-bon-jour-20px">
+          Rebecca easily finds information for beginners, classes, tickets, and even how to donate. She signs up her
+          children for some beginning classes to get them started. and also purchases some tickets for the whole family
+          for the next performance
+        </div>
+        <div class="she-has-tr-arting-out-C61RwL roboto-normal-bon-jour-20px">
+          She has tried searching the web for a children&#39;s theaters in her are but has been frustrated by their
+          websites and the lack of information for families just starting out.
+        </div>
+        <div class="she-and-he-th-theater-C61RwL roboto-normal-bon-jour-20px">
+          She and her kids are excited and looking forward to being able to participate at Valley Youth Theater.
+        </div>
+        <div class="a-friend-t-ooking-for-C61RwL roboto-normal-bon-jour-20px">
+          A friend tells her about Valley Youth Theater. She goes to their website. She immediately finds all the
+          information she is looking for.
+        </div>
+        <div class="she-soon-f-and-growth-C61RwL roboto-normal-bon-jour-20px">
+          She soon finds herself inviting relatives and friends to the next performance with her children on stage. She
+          is proud of their accomplishments and growth.
+        </div>
+        <div class="x-then-much--reference-C61RwL roboto-normal-bon-jour-40px">
+          Then, much like the evolution from proto to full persona, our user journey map helped flesh out some details
+          from our storyboard into another user-focused reference. <br />
+        </div>
+        <div class="dismantlin--user-flow-C61RwL roboto-normal-bon-jour-40px">
+          Dismantling the current site content and then reorganizing it helped to frame what was important for us to
+          highlight in the user flow.
+        </div>
+        <div class="once-card--or-a-class-C61RwL roboto-normal-bon-jour-40px">
+          Once Card Sorting was all set, it was only a matter of creating a sitemap that made logical sense, and
+          included all of the pages needed by the client. We also created a user flow for the three main CTA&#39;s.
+          Shown is the user flow for registering for a class. <br />
+        </div>
+        <div class="having-a-s-our-design-C61RwL roboto-normal-bon-jour-40px">
+          Having a set of different color, typography, and general style guidelines as a reference really helped us
+          focus in on our design. <br />
+        </div>
+        <img class="project-2---sorting-1-C61RwL" src="img/project-2---card-sorting-1@1x.png" />
+        <img class="path-2480-C61RwL" src="img/path-2480@1x.png" />
+        <img class="path-928-C61RwL" src="img/path-928@1x.png" />
+        <img class="path-929-C61RwL" src="img/path-929@1x.png" />
+        <img class="path-930-C61RwL" src="img/path-930@1x.png" />
+        <img class="path-931-C61RwL" src="img/path-931@1x.png" />
+        <img class="path-932-C61RwL" src="img/path-932@1x.png" />
+        <img class="path-933-C61RwL" src="img/path-931@1x.png" />
+        <img class="path-934-C61RwL" src="img/path-930@1x.png" />
+        <img class="path-935-C61RwL" src="img/path-931@1x.png" />
+        <img class="path-936-C61RwL" src="img/path-930@1x.png" />
+        <img class="path-937-C61RwL" src="img/path-931@1x.png" />
+        <img class="path-938-C61RwL" src="img/path-938@1x.png" />
+        <img class="path-939-C61RwL" src="img/path-939@1x.png" />
+        <img class="path-940-C61RwL" src="img/path-930@1x.png" />
+        <img class="path-941-C61RwL" src="img/path-939@1x.png" />
+        <img class="path-942-C61RwL" src="img/path-928@1x.png" />
+        <img class="path-943-C61RwL" src="img/path-929@1x.png" />
+        <img class="path-944-C61RwL" src="img/path-930@1x.png" />
+        <img class="path-945-C61RwL" src="img/path-931@1x.png" />
+        <img class="path-946-C61RwL" src="img/path-932@1x.png" />
+        <img class="path-947-C61RwL" src="img/path-931@1x.png" />
+        <img class="path-948-C61RwL" src="img/path-930@1x.png" />
+        <img class="path-949-C61RwL" src="img/path-931@1x.png" />
+        <img class="path-950-C61RwL" src="img/path-930@1x.png" />
+        <img class="path-951-C61RwL" src="img/path-931@1x.png" />
+        <img class="path-952-C61RwL" src="img/path-938@1x.png" />
+        <img class="path-953-C61RwL" src="img/path-939@1x.png" />
+        <img class="path-954-C61RwL" src="img/path-930@1x.png" />
+        <img class="path-955-C61RwL" src="img/path-939@1x.png" />
+        <img class="path-956-C61RwL" src="img/path-956@1x.png" />
+        <img class="path-957-C61RwL" src="img/path-957@1x.png" />
+        <img class="path-958-C61RwL" src="img/path-958@1x.png" />
+        <img class="path-959-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-960-C61RwL" src="img/path-960@1x.png" />
+        <img class="path-961-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-962-C61RwL" src="img/path-962@1x.png" />
+        <img class="path-963-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-964-C61RwL" src="img/path-956@1x.png" />
+        <img class="path-965-C61RwL" src="img/path-957@1x.png" />
+        <img class="path-966-C61RwL" src="img/path-958@1x.png" />
+        <img class="path-967-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-968-C61RwL" src="img/path-968@1x.png" />
+        <img class="path-969-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-970-C61RwL" src="img/path-970@1x.png" />
+        <img class="path-971-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-972-C61RwL" src="img/path-972@1x.png" />
+        <img class="path-973-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-974-C61RwL" src="img/path-974@1x.png" />
+        <img class="path-975-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-976-C61RwL" src="img/path-976@1x.png" />
+        <img class="path-977-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-978-C61RwL" src="img/path-978@1x.png" />
+        <img class="path-979-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-980-C61RwL" src="img/path-980@1x.png" />
+        <img class="path-981-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-982-C61RwL" src="img/path-974@1x.png" />
+        <img class="path-983-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-984-C61RwL" src="img/path-976@1x.png" />
+        <img class="path-985-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-986-C61RwL" src="img/path-978@1x.png" />
+        <img class="path-987-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-988-C61RwL" src="img/path-988@1x.png" />
+        <img class="path-989-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-990-C61RwL" src="img/path-990@1x.png" />
+        <img class="path-991-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-992-C61RwL" src="img/path-992@1x.png" />
+        <img class="path-993-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-994-C61RwL" src="img/path-994@1x.png" />
+        <img class="path-995-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-996-C61RwL" src="img/path-996@1x.png" />
+        <img class="path-997-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-998-C61RwL" src="img/path-998@1x.png" />
+        <img class="path-999-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-1000-C61RwL" src="img/path-1000@1x.png" />
+        <img class="path-1001-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-1002-C61RwL" src="img/path-1002@1x.png" />
+        <img class="path-1003-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-1004-C61RwL" src="img/path-1004@1x.png" />
+        <img class="path-1005-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-1006-C61RwL" src="img/path-1006@1x.png" />
+        <img class="path-1007-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-1008-C61RwL" src="img/path-1008@1x.png" />
+        <img class="path-1009-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-1010-C61RwL" src="img/path-1010@1x.png" />
+        <img class="path-1011-C61RwL" src="img/path-959@1x.png" />
+        <img class="path-1012-C61RwL" src="img/path-1012@1x.png" />
+        <img class="path-1013-C61RwL" src="img/path-1013@1x.png" />
+        <img class="path-1014-C61RwL" src="img/path-1014@1x.png" />
+        <img class="path-1015-C61RwL" src="img/path-1013@1x.png" />
+        <img class="path-1016-C61RwL" src="img/path-1012@1x.png" />
+        <img class="path-1017-C61RwL" src="img/path-1013@1x.png" />
+        <img class="path-2479-C61RwL" src="img/path-2479@1x.png" />
+        <img class="rectangle-196-C61RwL" src="img/rectangle-196@1x.png" />
+        <img class="path-1018-C61RwL" src="img/path-1018@1x.png" />
+        <img class="rectangle-197-C61RwL" src="img/rectangle-197@1x.png" />
+        <img class="path-1019-C61RwL" src="img/path-1019@1x.png" />
+        <img class="rectangle-220-C61RwL" src="img/rectangle-220@1x.png" />
+        <div class="rectangle-221-C61RwL"></div>
+        <img class="path-5388-C61RwL" src="img/path-2479@1x.png" />
+        <img class="path-1020-C61RwL" src="img/path-1020@1x.png" />
+        <img class="path-1021-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1022-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1023-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1024-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1025-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1026-C61RwL" src="img/path-1026@1x.png" />
+        <img class="path-1028-C61RwL" src="img/path-1026@1x.png" />
+        <img class="path-1030-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1031-C61RwL" src="img/path-1031@1x.png" />
+        <img class="path-1032-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1033-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1034-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1035-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1036-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1037-C61RwL" src="img/path-1026@1x.png" />
+        <img class="path-1038-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1039-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1040-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1041-C61RwL" src="img/path-1031@1x.png" />
+        <img class="path-1042-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1043-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1044-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1045-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1046-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1047-C61RwL" src="img/path-1026@1x.png" />
+        <img class="path-1048-C61RwL" src="img/path-1031@1x.png" />
+        <img class="path-1049-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1050-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1051-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1052-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1053-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1054-C61RwL" src="img/path-1026@1x.png" />
+        <img class="path-1065-C61RwL" src="img/path-1026@1x.png" />
+        <img class="path-1066-C61RwL" src="img/path-1026@1x.png" />
+        <img class="path-1067-C61RwL" src="img/path-1026@1x.png" />
+        <img class="path-1068-C61RwL" src="img/path-1026@1x.png" />
+        <img class="path-1069-C61RwL" src="img/path-1069@1x.png" />
+        <img class="path-1071-C61RwL" src="img/path-1069@1x.png" />
+        <img class="path-1072-C61RwL" src="img/path-1069@1x.png" />
+        <img class="path-1073-C61RwL" src="img/path-1069@1x.png" />
+        <img class="path-1074-C61RwL" src="img/path-1069@1x.png" />
+        <img class="path-1075-C61RwL" src="img/path-1075@1x.png" />
+        <img class="path-1076-C61RwL" src="img/path-1069@1x.png" />
+        <img class="path-1077-C61RwL" src="img/path-1077@1x.png" />
+        <img class="path-1078-C61RwL" src="img/path-1078@1x.png" />
+        <img class="path-1080-C61RwL" src="img/path-1077@1x.png" />
+        <img class="path-1081-C61RwL" src="img/path-1081@1x.png" />
+        <img class="path-1082-C61RwL" src="img/path-1081@1x.png" />
+        <img class="path-1083-C61RwL" src="img/path-1078@1x.png" />
+        <img class="path-1084-C61RwL" src="img/path-1084@1x.png" />
+        <img class="path-1085-C61RwL" src="img/path-1085@1x.png" />
+        <img class="path-1086-C61RwL" src="img/path-1085@1x.png" />
+        <img class="path-1087-C61RwL" src="img/path-1085@1x.png" />
+        <img class="path-1088-C61RwL" src="img/path-1085@1x.png" />
+        <img class="path-1089-C61RwL" src="img/path-1089@1x.png" />
+        <img class="path-1090-C61RwL" src="img/path-1089@1x.png" />
+        <img class="path-1092-C61RwL" src="img/path-1092@1x.png" />
+        <img class="path-1094-C61RwL" src="img/path-1094@1x.png" />
+        <img class="path-1095-C61RwL" src="img/path-1094@1x.png" />
+        <img class="path-1096-C61RwL" src="img/path-1094@1x.png" />
+        <img class="path-1097-C61RwL" src="img/path-1094@1x.png" />
+        <img class="path-1098-C61RwL" src="img/path-1094@1x.png" />
+        <img class="path-1099-C61RwL" src="img/path-1094@1x.png" />
+        <img class="path-1100-C61RwL" src="img/path-1100@1x.png" />
+        <img class="path-1101-C61RwL" src="img/path-1100@1x.png" />
+        <img class="path-1102-C61RwL" src="img/path-1102@1x.png" />
+        <img class="path-1103-C61RwL" src="img/path-1102@1x.png" />
+        <img class="path-1104-C61RwL" src="img/path-1102@1x.png" />
+        <img class="path-1105-C61RwL" src="img/path-1102@1x.png" />
+        <img class="path-1106-C61RwL" src="img/path-1102@1x.png" />
+        <img class="path-1107-C61RwL" src="img/path-1102@1x.png" />
+        <img class="path-1108-C61RwL" src="img/path-1102@1x.png" />
+        <img class="path-1109-C61RwL" src="img/path-1102@1x.png" />
+        <img class="path-1110-C61RwL" src="img/path-1110@1x.png" />
+        <img class="path-1111-C61RwL" src="img/path-1110@1x.png" />
+        <img class="path-1112-C61RwL" src="img/path-1112@1x.png" />
+        <img class="path-1113-C61RwL" src="img/path-1112@1x.png" />
+        <img class="path-1114-C61RwL" src="img/path-1112@1x.png" />
+        <img class="path-1115-C61RwL" src="img/path-1112@1x.png" />
+        <img class="path-1116-C61RwL" src="img/path-1112@1x.png" />
+        <img class="path-1117-C61RwL" src="img/path-1092@1x.png" />
+        <img class="path-1118-C61RwL" src="img/path-1092@1x.png" />
+        <img class="path-1129-C61RwL" src="img/path-1100@1x.png" />
+        <img class="path-1131-C61RwL" src="img/path-1112@1x.png" />
+        <img class="path-1132-C61RwL" src="img/path-1092@1x.png" />
+        <img class="path-1133-C61RwL" src="img/path-1092@1x.png" />
+        <img class="path-1134-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1135-C61RwL" src="img/path-1031@1x.png" />
+        <img class="path-1136-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1137-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1138-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1139-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1140-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1141-C61RwL" src="img/path-1026@1x.png" />
+        <img class="path-1142-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1143-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1144-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1145-C61RwL" src="img/path-1031@1x.png" />
+        <img class="path-1146-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1147-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1148-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1149-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1150-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1151-C61RwL" src="img/path-1026@1x.png" />
+        <img class="path-1152-C61RwL" src="img/path-1031@1x.png" />
+        <img class="path-1153-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1154-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1155-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1156-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1157-C61RwL" src="img/path-1021@1x.png" />
+        <img class="path-1158-C61RwL" src="img/path-1026@1x.png" />
+        <img class="path-1169-C61RwL" src="img/path-1026@1x.png" />
+        <img class="path-1170-C61RwL" src="img/path-1026@1x.png" />
+        <img class="path-1171-C61RwL" src="img/path-1026@1x.png" />
+        <img class="path-1172-C61RwL" src="img/path-1026@1x.png" />
+        <img class="path-1173-C61RwL" src="img/path-1069@1x.png" />
+        <img class="path-1174-C61RwL" src="img/path-1069@1x.png" />
+        <img class="path-1175-C61RwL" src="img/path-1069@1x.png" />
+        <img class="path-1176-C61RwL" src="img/path-1069@1x.png" />
+        <img class="path-1177-C61RwL" src="img/path-1075@1x.png" />
+        <img class="path-1178-C61RwL" src="img/path-1077@1x.png" />
+        <img class="path-1179-C61RwL" src="img/path-1078@1x.png" />
+        <img class="path-1181-C61RwL" src="img/path-1081@1x.png" />
+        <img class="path-1182-C61RwL" src="img/path-1081@1x.png" />
+        <img class="path-1183-C61RwL" src="img/path-1078@1x.png" />
+        <img class="path-1184-C61RwL" src="img/path-1084@1x.png" />
+        <img class="path-1185-C61RwL" src="img/path-1085@1x.png" />
+        <img class="path-1186-C61RwL" src="img/path-1085@1x.png" />
+        <img class="path-1187-C61RwL" src="img/path-1085@1x.png" />
+        <img class="path-1188-C61RwL" src="img/path-1085@1x.png" />
+        <img class="path-1189-C61RwL" src="img/path-1089@1x.png" />
+        <img class="path-1190-C61RwL" src="img/path-1089@1x.png" />
+        <img class="path-1192-C61RwL" src="img/path-1092@1x.png" />
+        <img class="path-1194-C61RwL" src="img/path-1094@1x.png" />
+        <img class="path-1195-C61RwL" src="img/path-1094@1x.png" />
+        <img class="path-1196-C61RwL" src="img/path-1094@1x.png" />
+        <img class="path-1197-C61RwL" src="img/path-1094@1x.png" />
+        <img class="path-1198-C61RwL" src="img/path-1094@1x.png" />
+        <img class="path-1199-C61RwL" src="img/path-1094@1x.png" />
+        <img class="path-1200-C61RwL" src="img/path-1100@1x.png" />
+        <img class="path-1201-C61RwL" src="img/path-1100@1x.png" />
+        <img class="path-1202-C61RwL" src="img/path-1102@1x.png" />
+        <img class="path-1203-C61RwL" src="img/path-1102@1x.png" />
+        <img class="path-1204-C61RwL" src="img/path-1102@1x.png" />
+        <img class="path-1205-C61RwL" src="img/path-1102@1x.png" />
+        <img class="path-1206-C61RwL" src="img/path-1102@1x.png" />
+        <img class="path-1207-C61RwL" src="img/path-1102@1x.png" />
+        <img class="path-1208-C61RwL" src="img/path-1102@1x.png" />
+        <img class="path-1209-C61RwL" src="img/path-1102@1x.png" />
+        <img class="path-1210-C61RwL" src="img/path-1110@1x.png" />
+        <img class="path-1211-C61RwL" src="img/path-1110@1x.png" />
+        <img class="path-1212-C61RwL" src="img/path-1112@1x.png" />
+        <img class="path-1213-C61RwL" src="img/path-1112@1x.png" />
+        <img class="path-1214-C61RwL" src="img/path-1112@1x.png" />
+        <img class="path-1215-C61RwL" src="img/path-1112@1x.png" />
+        <img class="path-1216-C61RwL" src="img/path-1112@1x.png" />
+        <img class="path-1217-C61RwL" src="img/path-1092@1x.png" />
+        <img class="path-1218-C61RwL" src="img/path-1092@1x.png" />
+        <img class="path-1229-C61RwL" src="img/path-1100@1x.png" />
+        <img class="path-1231-C61RwL" src="img/path-1112@1x.png" />
+        <img class="path-1232-C61RwL" src="img/path-1092@1x.png" />
+        <img class="path-1233-C61RwL" src="img/path-1092@1x.png" />
+        <img class="path-1234-C61RwL" src="img/path-1234@1x.png" />
+        <img class="path-1235-C61RwL" src="img/path-1235@1x.png" />
+        <img class="path-1236-C61RwL" src="img/path-1236@1x.png" />
+        <img class="path-1237-C61RwL" src="img/path-1237@1x.png" />
+        <img class="path-1238-C61RwL" src="img/path-1238@1x.png" />
+        <img class="path-1239-C61RwL" src="img/path-1239@1x.png" />
+        <img class="path-1240-C61RwL" src="img/path-1240@1x.png" />
+        <img class="path-1241-C61RwL" src="img/path-1241@1x.png" />
+        <img class="path-1242-C61RwL" src="img/path-1242@1x.png" />
+        <img class="path-1243-C61RwL" src="img/path-1243@1x.png" />
+        <img class="path-1244-C61RwL" src="img/path-1244@1x.png" />
+        <img class="path-1245-C61RwL" src="img/path-1245@1x.png" />
+        <img class="path-1246-C61RwL" src="img/path-1246@1x.png" />
+        <img class="path-1247-C61RwL" src="img/path-1247@1x.png" />
+        <img class="path-1248-C61RwL" src="img/path-1243@1x.png" />
+        <img class="path-1249-C61RwL" src="img/path-1249@1x.png" />
+        <img class="path-1250-C61RwL" src="img/path-1244@1x.png" />
+        <img class="path-1251-C61RwL" src="img/path-1251@1x.png" />
+        <img class="path-1252-C61RwL" src="img/path-1245@1x.png" />
+        <img class="path-1253-C61RwL" src="img/path-1243@1x.png" />
+        <img class="path-1254-C61RwL" src="img/path-1243@1x.png" />
+        <img class="path-1255-C61RwL" src="img/path-1241@1x.png" />
+        <img class="path-1256-C61RwL" src="img/path-1243@1x.png" />
+        <img class="path-1257-C61RwL" src="img/path-1257@1x.png" />
+        <img class="path-1258-C61RwL" src="img/path-1258@1x.png" />
+        <img class="path-1259-C61RwL" src="img/path-1259@1x.png" />
+        <img class="path-1260-C61RwL" src="img/path-1245@1x.png" />
+        <img class="path-1261-C61RwL" src="img/path-1242@1x.png" />
+        <img class="path-1262-C61RwL" src="img/path-1241@1x.png" />
+        <img class="path-1263-C61RwL" src="img/path-1263@1x.png" />
+        <img class="path-1264-C61RwL" src="img/path-1264@1x.png" />
+        <img class="path-1265-C61RwL" src="img/path-1242@1x.png" />
+        <img class="path-1266-C61RwL" src="img/path-1266@1x.png" />
+        <img class="path-1267-C61RwL" src="img/path-1242@1x.png" />
+        <img class="path-1268-C61RwL" src="img/path-1245@1x.png" />
+        <img class="path-1269-C61RwL" src="img/path-1269@1x.png" />
+        <img class="path-1270-C61RwL" src="img/path-1242@1x.png" />
+        <img class="path-1271-C61RwL" src="img/path-1271@1x.png" />
+        <img class="path-1272-C61RwL" src="img/path-1272@1x.png" />
+        <img class="path-1273-C61RwL" src="img/path-1273@1x.png" />
+        <img class="path-1274-C61RwL" src="img/path-1274@1x.png" />
+        <img class="path-1275-C61RwL" src="img/path-1258@1x.png" />
+        <img class="path-1276-C61RwL" src="img/path-1235@1x.png" />
+        <img class="path-1277-C61RwL" src="img/path-1242@1x.png" />
+        <img class="path-1278-C61RwL" src="img/path-1278@1x.png" />
+        <img class="path-1279-C61RwL" src="img/path-1279@1x.png" />
+        <img class="path-1280-C61RwL" src="img/path-1280@1x.png" />
+        <img class="path-1281-C61RwL" src="img/path-1258@1x.png" />
+        <img class="path-1282-C61RwL" src="img/path-1238@1x.png" />
+        <img class="path-1283-C61RwL" src="img/path-1259@1x.png" />
+        <img class="path-1284-C61RwL" src="img/path-1244@1x.png" />
+        <img class="path-1285-C61RwL" src="img/path-1245@1x.png" />
+        <img class="path-1286-C61RwL" src="img/path-1243@1x.png" />
+        <img class="path-1287-C61RwL" src="img/path-1242@1x.png" />
+        <img class="path-1288-C61RwL" src="img/path-1258@1x.png" />
+        <img class="path-1289-C61RwL" src="img/path-1269@1x.png" />
+        <img class="path-1290-C61RwL" src="img/path-1244@1x.png" />
+        <img class="path-1291-C61RwL" src="img/path-1269@1x.png" />
+        <img class="path-1292-C61RwL" src="img/path-1271@1x.png" />
+        <img class="path-1293-C61RwL" src="img/path-1293@1x.png" />
+        <img class="path-1294-C61RwL" src="img/path-1294@1x.png" />
+        <img class="path-1295-C61RwL" src="img/path-1272@1x.png" />
+        <img class="path-1296-C61RwL" src="img/path-1235@1x.png" />
+        <img class="path-1297-C61RwL" src="img/path-1297@1x.png" />
+        <img class="path-1298-C61RwL" src="img/path-1245@1x.png" />
+        <img class="path-1299-C61RwL" src="img/path-1242@1x.png" />
+        <img class="path-1300-C61RwL" src="img/path-1238@1x.png" />
+        <img class="path-1301-C61RwL" src="img/path-1258@1x.png" />
+        <img class="path-1302-C61RwL" src="img/path-1259@1x.png" />
+        <img class="path-1303-C61RwL" src="img/path-1266@1x.png" />
+        <img class="path-1304-C61RwL" src="img/path-1235@1x.png" />
+        <img class="path-1305-C61RwL" src="img/path-1247@1x.png" />
+        <img class="path-1306-C61RwL" src="img/path-1247@1x.png" />
+        <img class="path-1307-C61RwL" src="img/path-1258@1x.png" />
+        <img class="path-1308-C61RwL" src="img/path-1269@1x.png" />
+        <img class="path-1309-C61RwL" src="img/path-1242@1x.png" />
+        <img class="path-1310-C61RwL" src="img/path-1310@1x.png" />
+        <img class="path-1311-C61RwL" src="img/path-1311@1x.png" />
+        <img class="path-1312-C61RwL" src="img/path-1312@1x.png" />
+        <img class="path-1313-C61RwL" src="img/path-1313@1x.png" />
+        <img class="path-1314-C61RwL" src="img/path-1311@1x.png" />
+        <img class="path-1315-C61RwL" src="img/path-1312@1x.png" />
+        <img class="path-1316-C61RwL" src="img/path-1316@1x.png" />
+        <img class="path-1317-C61RwL" src="img/path-1311@1x.png" />
+        <img class="path-1318-C61RwL" src="img/path-1312@1x.png" />
+        <img class="path-1319-C61RwL" src="img/path-1319@1x.png" />
+        <img class="path-1320-C61RwL" src="img/path-1311@1x.png" />
+        <img class="path-1321-C61RwL" src="img/path-1312@1x.png" />
+        <img class="path-1322-C61RwL" src="img/path-1322@1x.png" />
+        <img class="path-1323-C61RwL" src="img/path-1311@1x.png" />
+        <img class="path-1324-C61RwL" src="img/path-1312@1x.png" />
+        <img class="path-1325-C61RwL" src="img/path-1325@1x.png" />
+        <img class="path-1326-C61RwL" src="img/path-1311@1x.png" />
+        <img class="path-1327-C61RwL" src="img/path-1312@1x.png" />
+        <img class="path-1328-C61RwL" src="img/path-1328@1x.png" />
+        <img class="path-1329-C61RwL" src="img/path-1311@1x.png" />
+        <img class="path-1330-C61RwL" src="img/path-1312@1x.png" />
+        <img class="path-1331-C61RwL" src="img/path-1331@1x.png" />
+        <img class="path-1332-C61RwL" src="img/path-1311@1x.png" />
+        <img class="path-1333-C61RwL" src="img/path-1312@1x.png" />
+        <img class="path-1334-C61RwL" src="img/path-1334@1x.png" />
+        <img class="path-1335-C61RwL" src="img/path-1335@1x.png" />
+        <img class="path-1336-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1337-C61RwL" src="img/path-1337@1x.png" />
+        <img class="path-1338-C61RwL" src="img/path-1338@1x.png" />
+        <img class="path-1339-C61RwL" src="img/path-1339@1x.png" />
+        <img class="path-1340-C61RwL" src="img/path-1340@1x.png" />
+        <img class="path-1341-C61RwL" src="img/path-1335@1x.png" />
+        <img class="path-1342-C61RwL" src="img/path-1340@1x.png" />
+        <img class="path-1343-C61RwL" src="img/path-1343@1x.png" />
+        <img class="path-1344-C61RwL" src="img/path-1335@1x.png" />
+        <img class="path-1345-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1346-C61RwL" src="img/path-1337@1x.png" />
+        <img class="path-1347-C61RwL" src="img/path-1347@1x.png" />
+        <img class="path-1348-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1349-C61RwL" src="img/path-1349@1x.png" />
+        <img class="path-1350-C61RwL" src="img/path-1337@1x.png" />
+        <img class="path-1351-C61RwL" src="img/path-1351@1x.png" />
+        <img class="path-1352-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1353-C61RwL" src="img/path-1353@1x.png" />
+        <img class="path-1354-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1355-C61RwL" src="img/path-1355@1x.png" />
+        <img class="path-1356-C61RwL" src="img/path-1335@1x.png" />
+        <img class="path-1357-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1358-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1359-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1360-C61RwL" src="img/path-1353@1x.png" />
+        <img class="path-1361-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1362-C61RwL" src="img/path-1362@1x.png" />
+        <img class="path-1363-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1364-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1365-C61RwL" src="img/path-1335@1x.png" />
+        <img class="path-1366-C61RwL" src="img/path-1337@1x.png" />
+        <img class="path-1367-C61RwL" src="img/path-1367@1x.png" />
+        <img class="path-1368-C61RwL" src="img/path-1335@1x.png" />
+        <img class="path-1369-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1370-C61RwL" src="img/path-1343@1x.png" />
+        <img class="path-1371-C61RwL" src="img/path-1335@1x.png" />
+        <img class="path-1372-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1373-C61RwL" src="img/path-1373@1x.png" />
+        <img class="path-1374-C61RwL" src="img/path-1335@1x.png" />
+        <img class="path-1375-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1376-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1377-C61RwL" src="img/path-1347@1x.png" />
+        <img class="path-1378-C61RwL" src="img/path-1335@1x.png" />
+        <img class="path-1379-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1380-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1381-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1382-C61RwL" src="img/path-1335@1x.png" />
+        <img class="path-1383-C61RwL" src="img/path-1383@1x.png" />
+        <img class="path-1384-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-1385-C61RwL" src="img/path-1385@1x.png" />
+        <img class="path-1386-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1387-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1388-C61RwL" src="img/path-1339@1x.png" />
+        <img class="path-1389-C61RwL" src="img/path-1389@1x.png" />
+        <img class="path-1390-C61RwL" src="img/path-1390@1x.png" />
+        <img class="path-1391-C61RwL" src="img/path-1391@1x.png" />
+        <img class="path-1392-C61RwL" src="img/path-1392@1x.png" />
+        <img class="path-1393-C61RwL" src="img/path-1393@1x.png" />
+        <img class="path-1394-C61RwL" src="img/path-1394@1x.png" />
+        <img class="path-1395-C61RwL" src="img/path-1395@1x.png" />
+        <img class="path-1396-C61RwL" src="img/path-1395@1x.png" />
+        <img class="path-1397-C61RwL" src="img/path-1347@1x.png" />
+        <img class="path-1398-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-1399-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1400-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1401-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1402-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-1403-C61RwL" src="img/path-1403@1x.png" />
+        <img class="path-1404-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1405-C61RwL" src="img/path-1385@1x.png" />
+        <img class="path-1406-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1407-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1408-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-1409-C61RwL" src="img/path-1409@1x.png" />
+        <img class="path-1410-C61RwL" src="img/path-1410@1x.png" />
+        <img class="path-1411-C61RwL" src="img/path-1391@1x.png" />
+        <img class="path-1412-C61RwL" src="img/path-1392@1x.png" />
+        <img class="path-1413-C61RwL" src="img/path-1413@1x.png" />
+        <img class="path-1414-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-1415-C61RwL" src="img/path-1415@1x.png" />
+        <img class="path-1416-C61RwL" src="img/path-1395@1x.png" />
+        <img class="path-1417-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1418-C61RwL" src="img/path-1418@1x.png" />
+        <img class="path-1419-C61RwL" src="img/path-1419@1x.png" />
+        <img class="path-1420-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1421-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1422-C61RwL" src="img/path-1422@1x.png" />
+        <img class="path-1423-C61RwL" src="img/path-1391@1x.png" />
+        <img class="path-1424-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-1425-C61RwL" src="img/path-1425@1x.png" />
+        <img class="path-1426-C61RwL" src="img/path-1426@1x.png" />
+        <img class="path-1427-C61RwL" src="img/path-1391@1x.png" />
+        <img class="path-1428-C61RwL" src="img/path-1428@1x.png" />
+        <img class="path-1429-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1430-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-1431-C61RwL" src="img/path-1425@1x.png" />
+        <img class="path-1432-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1433-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1434-C61RwL" src="img/path-1434@1x.png" />
+        <img class="path-1435-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1436-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-1437-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1438-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1439-C61RwL" src="img/path-1391@1x.png" />
+        <img class="path-1440-C61RwL" src="img/path-1428@1x.png" />
+        <img class="path-1441-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1442-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1443-C61RwL" src="img/path-1418@1x.png" />
+        <img class="path-1444-C61RwL" src="img/path-1444@1x.png" />
+        <img class="path-1445-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1446-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1447-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1448-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-1449-C61RwL" src="img/path-1449@1x.png" />
+        <img class="path-1450-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1451-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-1452-C61RwL" src="img/path-1353@1x.png" />
+        <img class="path-1453-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-1454-C61RwL" src="img/path-1454@1x.png" />
+        <img class="path-1455-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1456-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1457-C61RwL" src="img/path-1457@1x.png" />
+        <img class="path-1458-C61RwL" src="img/path-1391@1x.png" />
+        <img class="path-1459-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1460-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1461-C61RwL" src="img/path-1461@1x.png" />
+        <img class="path-1462-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1463-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1464-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1465-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-1466-C61RwL" src="img/path-1391@1x.png" />
+        <img class="path-1467-C61RwL" src="img/path-1428@1x.png" />
+        <img class="path-1468-C61RwL" src="img/path-1391@1x.png" />
+        <img class="path-1469-C61RwL" src="img/path-1469@1x.png" />
+        <img class="path-1470-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1471-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1472-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-1473-C61RwL" src="img/path-1473@1x.png" />
+        <img class="path-1474-C61RwL" src="img/path-1428@1x.png" />
+        <img class="path-1475-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1476-C61RwL" src="img/path-1476@1x.png" />
+        <img class="path-1477-C61RwL" src="img/path-1476@1x.png" />
+        <img class="path-1478-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-1479-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-1480-C61RwL" src="img/path-1476@1x.png" />
+        <img class="path-1481-C61RwL" src="img/path-1481@1x.png" />
+        <img class="path-1482-C61RwL" src="img/path-1482@1x.png" />
+        <img class="path-1483-C61RwL" src="img/path-1483@1x.png" />
+        <img class="path-1484-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1485-C61RwL" src="img/path-1485@1x.png" />
+        <img class="path-1486-C61RwL" src="img/path-1339@1x.png" />
+        <img class="path-1487-C61RwL" src="img/path-1487@1x.png" />
+        <img class="path-1488-C61RwL" src="img/path-1349@1x.png" />
+        <img class="path-1489-C61RwL" src="img/path-1489@1x.png" />
+        <img class="path-1490-C61RwL" src="img/path-1338@1x.png" />
+        <img class="path-1491-C61RwL" src="img/path-1339@1x.png" />
+        <img class="path-1492-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1493-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1494-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-1495-C61RwL" src="img/path-1495@1x.png" />
+        <img class="path-1496-C61RwL" src="img/path-1338@1x.png" />
+        <img class="path-1497-C61RwL" src="img/path-1497@1x.png" />
+        <img class="path-1498-C61RwL" src="img/path-1454@1x.png" />
+        <img class="path-1499-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1500-C61RwL" src="img/path-1500@1x.png" />
+        <img class="path-1501-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-1502-C61RwL" src="img/path-1502@1x.png" />
+        <img class="path-1503-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1504-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1505-C61RwL" src="img/path-1502@1x.png" />
+        <img class="path-1506-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1507-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1508-C61RwL" src="img/path-1502@1x.png" />
+        <img class="path-1509-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1510-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1511-C61RwL" src="img/path-1502@1x.png" />
+        <img class="path-1512-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1513-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1514-C61RwL" src="img/path-1502@1x.png" />
+        <img class="path-1515-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1516-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1517-C61RwL" src="img/path-1502@1x.png" />
+        <img class="path-1518-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1519-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1520-C61RwL" src="img/path-1520@1x.png" />
+        <img class="path-1521-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1522-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1523-C61RwL" src="img/path-1520@1x.png" />
+        <img class="path-1524-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1525-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1526-C61RwL" src="img/path-1526@1x.png" />
+        <img class="path-1527-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1528-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1529-C61RwL" src="img/path-1529@1x.png" />
+        <img class="path-1530-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-1531-C61RwL" src="img/path-1531@1x.png" />
+        <img class="path-1532-C61RwL" src="img/path-1395@1x.png" />
+        <img class="path-1533-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-1534-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-1535-C61RwL" src="img/path-1339@1x.png" />
+        <img class="path-1536-C61RwL" src="img/path-1383@1x.png" />
+        <img class="path-1537-C61RwL" src="img/path-1461@1x.png" />
+        <img class="path-1538-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1539-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1540-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1541-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-1542-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1543-C61RwL" src="img/path-1428@1x.png" />
+        <img class="path-1544-C61RwL" src="img/path-1383@1x.png" />
+        <img class="path-1545-C61RwL" src="img/path-1347@1x.png" />
+        <img class="path-1546-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-1547-C61RwL" src="img/path-1547@1x.png" />
+        <img class="path-1548-C61RwL" src="img/path-1548@1x.png" />
+        <img class="path-1549-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-1550-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1551-C61RwL" src="img/path-1410@1x.png" />
+        <img class="path-1552-C61RwL" src="img/path-1422@1x.png" />
+        <img class="path-1553-C61RwL" src="img/path-1353@1x.png" />
+        <img class="path-1554-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-1555-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1556-C61RwL" src="img/path-1418@1x.png" />
+        <img class="path-1557-C61RwL" src="img/path-1391@1x.png" />
+        <img class="path-1558-C61RwL" src="img/path-1422@1x.png" />
+        <img class="path-1559-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1560-C61RwL" src="img/path-1560@1x.png" />
+        <img class="path-1561-C61RwL" src="img/path-1418@1x.png" />
+        <img class="path-1562-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1563-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1564-C61RwL" src="img/path-1531@1x.png" />
+        <img class="path-1565-C61RwL" src="img/path-1565@1x.png" />
+        <img class="path-1566-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1567-C61RwL" src="img/path-1428@1x.png" />
+        <img class="path-1568-C61RwL" src="img/path-1428@1x.png" />
+        <img class="path-1569-C61RwL" src="img/path-1343@1x.png" />
+        <img class="path-1570-C61RwL" src="img/path-1338@1x.png" />
+        <img class="path-1571-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1572-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1573-C61RwL" src="img/path-1573@1x.png" />
+        <img class="path-1574-C61RwL" src="img/path-1574@1x.png" />
+        <img class="path-1575-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-1576-C61RwL" src="img/path-1573@1x.png" />
+        <img class="path-1577-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1578-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1579-C61RwL" src="img/path-1338@1x.png" />
+        <img class="path-1580-C61RwL" src="img/path-1339@1x.png" />
+        <img class="path-1581-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1582-C61RwL" src="img/path-1339@1x.png" />
+        <img class="path-1583-C61RwL" src="img/path-1573@1x.png" />
+        <img class="path-1584-C61RwL" src="img/path-1584@1x.png" />
+        <img class="path-1585-C61RwL" src="img/path-1391@1x.png" />
+        <img class="path-1586-C61RwL" src="img/path-1383@1x.png" />
+        <img class="path-1587-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1588-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1589-C61RwL" src="img/path-1339@1x.png" />
+        <img class="path-1590-C61RwL" src="img/path-1590@1x.png" />
+        <img class="path-1591-C61RwL" src="img/path-1548@1x.png" />
+        <img class="path-1592-C61RwL" src="img/path-1574@1x.png" />
+        <img class="path-1593-C61RwL" src="img/path-1593@1x.png" />
+        <img class="path-1594-C61RwL" src="img/path-1383@1x.png" />
+        <img class="path-1595-C61RwL" src="img/path-1595@1x.png" />
+        <img class="path-1596-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1597-C61RwL" src="img/path-1362@1x.png" />
+        <img class="path-1598-C61RwL" src="img/path-1444@1x.png" />
+        <img class="path-1599-C61RwL" src="img/path-1337@1x.png" />
+        <img class="path-1600-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1601-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1602-C61RwL" src="img/path-1602@1x.png" />
+        <img class="path-1603-C61RwL" src="img/path-1335@1x.png" />
+        <img class="path-1604-C61RwL" src="img/path-1362@1x.png" />
+        <img class="path-1605-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1606-C61RwL" src="img/path-1335@1x.png" />
+        <img class="path-1607-C61RwL" src="img/path-1531@1x.png" />
+        <img class="path-1608-C61RwL" src="img/path-1337@1x.png" />
+        <img class="path-1609-C61RwL" src="img/path-1393@1x.png" />
+        <img class="path-1610-C61RwL" src="img/path-1394@1x.png" />
+        <img class="path-1611-C61RwL" src="img/path-1395@1x.png" />
+        <img class="path-1612-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-1613-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-1614-C61RwL" src="img/path-1339@1x.png" />
+        <img class="path-1615-C61RwL" src="img/path-1337@1x.png" />
+        <img class="path-1616-C61RwL" src="img/path-1393@1x.png" />
+        <img class="path-1617-C61RwL" src="img/path-1394@1x.png" />
+        <img class="path-1618-C61RwL" src="img/path-1395@1x.png" />
+        <img class="path-1619-C61RwL" src="img/path-1619@1x.png" />
+        <img class="path-1620-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1621-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1622-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-1623-C61RwL" src="img/path-1403@1x.png" />
+        <img class="path-1624-C61RwL" src="img/path-1624@1x.png" />
+        <img class="path-1625-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-1626-C61RwL" src="img/path-1573@1x.png" />
+        <img class="path-1627-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1628-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1629-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1630-C61RwL" src="img/path-1338@1x.png" />
+        <img class="path-1631-C61RwL" src="img/path-1339@1x.png" />
+        <img class="path-1632-C61RwL" src="img/path-1337@1x.png" />
+        <img class="path-1633-C61RwL" src="img/path-1633@1x.png" />
+        <img class="path-1634-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1635-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1636-C61RwL" src="img/path-1633@1x.png" />
+        <img class="path-1637-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1638-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1639-C61RwL" src="img/path-1633@1x.png" />
+        <img class="path-1640-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1641-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1642-C61RwL" src="img/path-1633@1x.png" />
+        <img class="path-1643-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1644-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1645-C61RwL" src="img/path-1633@1x.png" />
+        <img class="path-1646-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1647-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1648-C61RwL" src="img/path-1648@1x.png" />
+        <img class="path-1649-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1650-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1651-C61RwL" src="img/path-1633@1x.png" />
+        <img class="path-1652-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1653-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1654-C61RwL" src="img/path-1648@1x.png" />
+        <img class="path-1655-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1656-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1657-C61RwL" src="img/path-1657@1x.png" />
+        <img class="path-1658-C61RwL" src="img/path-1658@1x.png" />
+        <img class="path-1659-C61RwL" src="img/path-1658@1x.png" />
+        <img class="path-1660-C61RwL" src="img/path-1660@1x.png" />
+        <img class="path-1661-C61RwL" src="img/path-1661@1x.png" />
+        <img class="path-1662-C61RwL" src="img/path-1495@1x.png" />
+        <img class="path-1663-C61RwL" src="img/path-1663@1x.png" />
+        <img class="path-1664-C61RwL" src="img/path-1664@1x.png" />
+        <img class="path-1665-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1666-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-1667-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1668-C61RwL" src="img/path-1584@1x.png" />
+        <img class="path-1669-C61RwL" src="img/path-1347@1x.png" />
+        <img class="path-1670-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1671-C61RwL" src="img/path-1339@1x.png" />
+        <img class="path-1672-C61RwL" src="img/path-1590@1x.png" />
+        <img class="path-1673-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1674-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1675-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1676-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1677-C61RwL" src="img/path-1337@1x.png" />
+        <img class="path-1678-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1679-C61RwL" src="img/path-1337@1x.png" />
+        <img class="path-1680-C61RwL" src="img/path-1334@1x.png" />
+        <img class="path-1681-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1682-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-1683-C61RwL" src="img/path-1573@1x.png" />
+        <img class="path-1684-C61RwL" src="img/path-1684@1x.png" />
+        <img class="path-1685-C61RwL" src="img/path-1351@1x.png" />
+        <img class="path-1686-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-1687-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1688-C61RwL" src="img/path-1573@1x.png" />
+        <img class="path-1689-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1690-C61RwL" src="img/path-1690@1x.png" />
+        <img class="path-1691-C61RwL" src="img/path-1661@1x.png" />
+        <img class="path-1692-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-1693-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1694-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1695-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1696-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-1697-C61RwL" src="img/path-1422@1x.png" />
+        <img class="path-1698-C61RwL" src="img/path-1347@1x.png" />
+        <img class="path-1699-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1700-C61RwL" src="img/path-1392@1x.png" />
+        <img class="path-1701-C61RwL" src="img/path-1422@1x.png" />
+        <img class="path-1702-C61RwL" src="img/path-1334@1x.png" />
+        <img class="path-1703-C61RwL" src="img/path-1418@1x.png" />
+        <img class="path-1704-C61RwL" src="img/path-1347@1x.png" />
+        <img class="path-1705-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-1706-C61RwL" src="img/path-1428@1x.png" />
+        <img class="path-1707-C61RwL" src="img/path-1391@1x.png" />
+        <img class="path-1708-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1709-C61RwL" src="img/path-1422@1x.png" />
+        <img class="path-1710-C61RwL" src="img/path-1347@1x.png" />
+        <img class="path-1711-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1712-C61RwL" src="img/path-1392@1x.png" />
+        <img class="path-1713-C61RwL" src="img/path-1422@1x.png" />
+        <img class="path-1714-C61RwL" src="img/path-1548@1x.png" />
+        <img class="path-1715-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1716-C61RwL" src="img/path-1335@1x.png" />
+        <img class="path-1717-C61RwL" src="img/path-1428@1x.png" />
+        <img class="path-1718-C61RwL" src="img/path-1573@1x.png" />
+        <img class="path-1719-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1720-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1721-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1722-C61RwL" src="img/path-1349@1x.png" />
+        <img class="path-1723-C61RwL" src="img/path-1337@1x.png" />
+        <img class="path-1724-C61RwL" src="img/path-1724@1x.png" />
+        <img class="path-1725-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1726-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-1727-C61RwL" src="img/path-1727@1x.png" />
+        <img class="path-1728-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1729-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1730-C61RwL" src="img/path-1457@1x.png" />
+        <img class="path-1731-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1732-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1733-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1734-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-1735-C61RwL" src="img/path-1391@1x.png" />
+        <img class="path-1736-C61RwL" src="img/path-1428@1x.png" />
+        <img class="path-1737-C61RwL" src="img/path-1392@1x.png" />
+        <img class="path-1738-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1739-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1740-C61RwL" src="img/path-1353@1x.png" />
+        <img class="path-1741-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-1742-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1743-C61RwL" src="img/path-1743@1x.png" />
+        <img class="path-1744-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1745-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-1746-C61RwL" src="img/path-1449@1x.png" />
+        <img class="path-1747-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1748-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1749-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1750-C61RwL" src="img/path-1383@1x.png" />
+        <img class="path-1751-C61RwL" src="img/path-1584@1x.png" />
+        <img class="path-1752-C61RwL" src="img/path-1428@1x.png" />
+        <img class="path-1753-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1754-C61RwL" src="img/path-1383@1x.png" />
+        <img class="path-1755-C61RwL" src="img/path-1383@1x.png" />
+        <img class="path-1756-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-1757-C61RwL" src="img/path-1383@1x.png" />
+        <img class="path-1758-C61RwL" src="img/path-1758@1x.png" />
+        <img class="path-1759-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1760-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1761-C61RwL" src="img/path-1335@1x.png" />
+        <img class="path-1762-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1763-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1764-C61RwL" src="img/path-1362@1x.png" />
+        <img class="path-1765-C61RwL" src="img/path-1684@1x.png" />
+        <img class="path-1766-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1767-C61RwL" src="img/path-1339@1x.png" />
+        <img class="path-1768-C61RwL" src="img/path-1573@1x.png" />
+        <img class="path-1769-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1770-C61RwL" src="img/path-1347@1x.png" />
+        <img class="path-1771-C61RwL" src="img/path-1335@1x.png" />
+        <img class="path-1772-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1773-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1774-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1775-C61RwL" src="img/path-1337@1x.png" />
+        <img class="path-1776-C61RwL" src="img/path-1776@1x.png" />
+        <img class="path-1777-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-1778-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-1779-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1780-C61RwL" src="img/path-1338@1x.png" />
+        <img class="path-1781-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-1782-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1783-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1784-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-1785-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1786-C61RwL" src="img/path-1362@1x.png" />
+        <img class="path-1787-C61RwL" src="img/path-1347@1x.png" />
+        <img class="path-1788-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-1789-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1790-C61RwL" src="img/path-1337@1x.png" />
+        <img class="path-1791-C61RwL" src="img/path-1393@1x.png" />
+        <img class="path-1792-C61RwL" src="img/path-1394@1x.png" />
+        <img class="path-1793-C61RwL" src="img/path-1395@1x.png" />
+        <img class="path-1794-C61RwL" src="img/path-1353@1x.png" />
+        <img class="path-1795-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-1796-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1797-C61RwL" src="img/path-1548@1x.png" />
+        <img class="path-1798-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1799-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1800-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1801-C61RwL" src="img/path-1801@1x.png" />
+        <img class="path-1802-C61RwL" src="img/path-1624@1x.png" />
+        <img class="path-1803-C61RwL" src="img/path-1343@1x.png" />
+        <img class="path-1804-C61RwL" src="img/path-1338@1x.png" />
+        <img class="path-1805-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-1806-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1807-C61RwL" src="img/path-1393@1x.png" />
+        <img class="path-1808-C61RwL" src="img/path-1394@1x.png" />
+        <img class="path-1809-C61RwL" src="img/path-1395@1x.png" />
+        <img class="path-1810-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-1811-C61RwL" src="img/path-1573@1x.png" />
+        <img class="path-1812-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-1813-C61RwL" src="img/path-1362@1x.png" />
+        <img class="path-1814-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1815-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1816-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1817-C61RwL" src="img/path-1338@1x.png" />
+        <img class="path-1818-C61RwL" src="img/path-1339@1x.png" />
+        <img class="path-1819-C61RwL" src="img/path-1819@1x.png" />
+        <img class="path-1820-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1821-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1822-C61RwL" src="img/path-1822@1x.png" />
+        <img class="path-1823-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1824-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1825-C61RwL" src="img/path-1825@1x.png" />
+        <img class="path-1826-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1827-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1828-C61RwL" src="img/path-1825@1x.png" />
+        <img class="path-1829-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1830-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1831-C61RwL" src="img/path-1825@1x.png" />
+        <img class="path-1832-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1833-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1834-C61RwL" src="img/path-1825@1x.png" />
+        <img class="path-1835-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1836-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1837-C61RwL" src="img/path-1825@1x.png" />
+        <img class="path-1838-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1839-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1840-C61RwL" src="img/path-1825@1x.png" />
+        <img class="path-1841-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1842-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1843-C61RwL" src="img/path-1825@1x.png" />
+        <img class="path-1844-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1845-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1846-C61RwL" src="img/path-1825@1x.png" />
+        <img class="path-1847-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1848-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1849-C61RwL" src="img/path-1849@1x.png" />
+        <img class="path-1850-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-1851-C61RwL" src="img/path-1339@1x.png" />
+        <img class="path-1852-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1853-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1854-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-1855-C61RwL" src="img/path-1339@1x.png" />
+        <img class="path-1856-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-1857-C61RwL" src="img/path-1531@1x.png" />
+        <img class="path-1858-C61RwL" src="img/path-1858@1x.png" />
+        <img class="path-1859-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1860-C61RwL" src="img/path-1573@1x.png" />
+        <img class="path-1861-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-1862-C61RwL" src="img/path-1418@1x.png" />
+        <img class="path-1863-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1864-C61RwL" src="img/path-1415@1x.png" />
+        <img class="path-1865-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-1866-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-1867-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1868-C61RwL" src="img/path-1573@1x.png" />
+        <img class="path-1869-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-1870-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-1871-C61RwL" src="img/path-1391@1x.png" />
+        <img class="path-1872-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1873-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1874-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-1875-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-1876-C61RwL" src="img/path-1876@1x.png" />
+        <img class="path-1877-C61RwL" src="img/path-1849@1x.png" />
+        <img class="path-1878-C61RwL" src="img/path-1393@1x.png" />
+        <img class="path-1879-C61RwL" src="img/path-1724@1x.png" />
+        <img class="path-1880-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1881-C61RwL" src="img/path-1339@1x.png" />
+        <img class="path-1882-C61RwL" src="img/path-1335@1x.png" />
+        <img class="path-1883-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1884-C61RwL" src="img/path-1684@1x.png" />
+        <img class="path-1885-C61RwL" src="img/path-1602@1x.png" />
+        <img class="path-1886-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1887-C61RwL" src="img/path-1353@1x.png" />
+        <img class="path-1888-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1889-C61RwL" src="img/path-1602@1x.png" />
+        <img class="path-1890-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-1891-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1892-C61RwL" src="img/path-1573@1x.png" />
+        <img class="path-1893-C61RwL" src="img/path-1335@1x.png" />
+        <img class="path-1894-C61RwL" src="img/path-1367@1x.png" />
+        <img class="path-1895-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-1896-C61RwL" src="img/path-1392@1x.png" />
+        <img class="path-1897-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1898-C61RwL" src="img/path-1660@1x.png" />
+        <img class="path-1899-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1900-C61RwL" src="img/path-1573@1x.png" />
+        <img class="path-1901-C61RwL" src="img/path-1422@1x.png" />
+        <img class="path-1902-C61RwL" src="img/path-1347@1x.png" />
+        <img class="path-1903-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-1904-C61RwL" src="img/path-1428@1x.png" />
+        <img class="path-1905-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1906-C61RwL" src="img/path-1573@1x.png" />
+        <img class="path-1907-C61RwL" src="img/path-1391@1x.png" />
+        <img class="path-1908-C61RwL" src="img/path-1415@1x.png" />
+        <img class="path-1909-C61RwL" src="img/path-1418@1x.png" />
+        <img class="path-1910-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-1911-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-1912-C61RwL" src="img/path-1418@1x.png" />
+        <img class="path-1913-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1914-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1915-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1916-C61RwL" src="img/path-1624@1x.png" />
+        <img class="path-1917-C61RwL" src="img/path-1410@1x.png" />
+        <img class="path-1918-C61RwL" src="img/path-1391@1x.png" />
+        <img class="path-1919-C61RwL" src="img/path-1919@1x.png" />
+        <img class="path-1920-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-1921-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-1922-C61RwL" src="img/path-1483@1x.png" />
+        <img class="path-1923-C61RwL" src="img/path-1410@1x.png" />
+        <img class="path-1924-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1925-C61RwL" src="img/path-1428@1x.png" />
+        <img class="path-1926-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1927-C61RwL" src="img/path-1393@1x.png" />
+        <img class="path-1928-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1929-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1930-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1931-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-1932-C61RwL" src="img/path-1391@1x.png" />
+        <img class="path-1933-C61RwL" src="img/path-1933@1x.png" />
+        <img class="path-1934-C61RwL" src="img/path-1393@1x.png" />
+        <img class="path-1935-C61RwL" src="img/path-1394@1x.png" />
+        <img class="path-1936-C61RwL" src="img/path-1395@1x.png" />
+        <img class="path-1937-C61RwL" src="img/path-1937@1x.png" />
+        <img class="path-1938-C61RwL" src="img/path-1391@1x.png" />
+        <img class="path-1939-C61RwL" src="img/path-1933@1x.png" />
+        <img class="path-1940-C61RwL" src="img/path-1574@1x.png" />
+        <img class="path-1941-C61RwL" src="img/path-1353@1x.png" />
+        <img class="path-1942-C61RwL" src="img/path-1353@1x.png" />
+        <img class="path-1943-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1944-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1945-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1946-C61RwL" src="img/path-1937@1x.png" />
+        <img class="path-1947-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-1948-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1949-C61RwL" src="img/path-1347@1x.png" />
+        <img class="path-1950-C61RwL" src="img/path-1338@1x.png" />
+        <img class="path-1951-C61RwL" src="img/path-1339@1x.png" />
+        <img class="path-1952-C61RwL" src="img/path-1661@1x.png" />
+        <img class="path-1953-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-1954-C61RwL" src="img/path-1461@1x.png" />
+        <img class="path-1955-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-1956-C61RwL" src="img/path-1403@1x.png" />
+        <img class="path-1957-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1958-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1959-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-1960-C61RwL" src="img/path-1393@1x.png" />
+        <img class="path-1961-C61RwL" src="img/path-1394@1x.png" />
+        <img class="path-1962-C61RwL" src="img/path-1395@1x.png" />
+        <img class="path-1963-C61RwL" src="img/path-1758@1x.png" />
+        <img class="path-1964-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-1965-C61RwL" src="img/path-1337@1x.png" />
+        <img class="path-1966-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1967-C61RwL" src="img/path-1338@1x.png" />
+        <img class="path-1968-C61RwL" src="img/path-1353@1x.png" />
+        <img class="path-1969-C61RwL" src="img/path-1661@1x.png" />
+        <img class="path-1970-C61RwL" src="img/path-1339@1x.png" />
+        <img class="path-1971-C61RwL" src="img/path-1461@1x.png" />
+        <img class="path-1972-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-1973-C61RwL" src="img/path-1337@1x.png" />
+        <img class="path-1974-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-1975-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-1976-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-1977-C61RwL" src="img/path-1337@1x.png" />
+        <img class="path-1978-C61RwL" src="img/path-1978@1x.png" />
+        <img class="path-1979-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1980-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1981-C61RwL" src="img/path-1978@1x.png" />
+        <img class="path-1982-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1983-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1984-C61RwL" src="img/path-1978@1x.png" />
+        <img class="path-1985-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1986-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1987-C61RwL" src="img/path-1978@1x.png" />
+        <img class="path-1988-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1989-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1990-C61RwL" src="img/path-1978@1x.png" />
+        <img class="path-1991-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1992-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1993-C61RwL" src="img/path-1978@1x.png" />
+        <img class="path-1994-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1995-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1996-C61RwL" src="img/path-1978@1x.png" />
+        <img class="path-1997-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-1998-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-1999-C61RwL" src="img/path-1548@1x.png" />
+        <img class="path-2000-C61RwL" src="img/path-1624@1x.png" />
+        <img class="path-2001-C61RwL" src="img/path-2001@1x.png" />
+        <img class="path-2002-C61RwL" src="img/path-1776@1x.png" />
+        <img class="path-2003-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-2004-C61RwL" src="img/path-1573@1x.png" />
+        <img class="path-2005-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-2006-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-2007-C61RwL" src="img/path-1351@1x.png" />
+        <img class="path-2008-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-2009-C61RwL" src="img/path-1428@1x.png" />
+        <img class="path-2010-C61RwL" src="img/path-1428@1x.png" />
+        <img class="path-2011-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-2012-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-2013-C61RwL" src="img/path-1415@1x.png" />
+        <img class="path-2014-C61RwL" src="img/path-1724@1x.png" />
+        <img class="path-2015-C61RwL" src="img/path-1347@1x.png" />
+        <img class="path-2016-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-2017-C61RwL" src="img/path-2017@1x.png" />
+        <img class="path-2018-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-2019-C61RwL" src="img/path-1574@1x.png" />
+        <img class="path-2020-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-2021-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-2022-C61RwL" src="img/path-1574@1x.png" />
+        <img class="path-2023-C61RwL" src="img/path-1933@1x.png" />
+        <img class="path-2024-C61RwL" src="img/path-2024@1x.png" />
+        <img class="path-2025-C61RwL" src="img/path-1393@1x.png" />
+        <img class="path-2026-C61RwL" src="img/path-1394@1x.png" />
+        <img class="path-2027-C61RwL" src="img/path-1395@1x.png" />
+        <img class="path-2028-C61RwL" src="img/path-2028@1x.png" />
+        <img class="path-2029-C61RwL" src="img/path-1391@1x.png" />
+        <img class="path-2030-C61RwL" src="img/path-1422@1x.png" />
+        <img class="path-2031-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-2032-C61RwL" src="img/path-1422@1x.png" />
+        <img class="path-2033-C61RwL" src="img/path-1334@1x.png" />
+        <img class="path-2034-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-2035-C61RwL" src="img/path-1590@1x.png" />
+        <img class="path-2036-C61RwL" src="img/path-1339@1x.png" />
+        <img class="path-2037-C61RwL" src="img/path-1487@1x.png" />
+        <img class="path-2038-C61RwL" src="img/path-1392@1x.png" />
+        <img class="path-2039-C61RwL" src="img/path-1353@1x.png" />
+        <img class="path-2040-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-2041-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-2042-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-2043-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-2044-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-2045-C61RwL" src="img/path-1339@1x.png" />
+        <img class="path-2046-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-2047-C61RwL" src="img/path-2047@1x.png" />
+        <img class="path-2048-C61RwL" src="img/path-1383@1x.png" />
+        <img class="path-2049-C61RwL" src="img/path-1428@1x.png" />
+        <img class="path-2050-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-2051-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-2052-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-2053-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-2054-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-2055-C61RwL" src="img/path-2055@1x.png" />
+        <img class="path-2056-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-2057-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-2058-C61RwL" src="img/path-1574@1x.png" />
+        <img class="path-2059-C61RwL" src="img/path-1428@1x.png" />
+        <img class="path-2060-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-2061-C61RwL" src="img/path-1410@1x.png" />
+        <img class="path-2062-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-2063-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-2064-C61RwL" src="img/path-1574@1x.png" />
+        <img class="path-2065-C61RwL" src="img/path-1428@1x.png" />
+        <img class="path-2066-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-2067-C61RwL" src="img/path-1410@1x.png" />
+        <img class="path-2068-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-2069-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-2070-C61RwL" src="img/path-2070@1x.png" />
+        <img class="path-2071-C61RwL" src="img/path-1384@1x.png" />
+        <img class="path-2072-C61RwL" src="img/path-1590@1x.png" />
+        <img class="path-2073-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-2074-C61RwL" src="img/path-1383@1x.png" />
+        <img class="path-2075-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-2076-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-2077-C61RwL" src="img/path-1336@1x.png" />
+        <img class="path-2078-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-2079-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-2080-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-2081-C61RwL" src="img/path-1339@1x.png" />
+        <img class="path-2082-C61RwL" src="img/path-2082@1x.png" />
+        <img class="path-2083-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-2084-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-2085-C61RwL" src="img/path-1413@1x.png" />
+        <img class="path-2086-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-2087-C61RwL" src="img/path-1391@1x.png" />
+        <img class="path-2088-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-2089-C61RwL" src="img/path-1573@1x.png" />
+        <img class="path-2090-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-2091-C61RwL" src="img/path-1353@1x.png" />
+        <img class="path-2092-C61RwL" src="img/path-2092@1x.png" />
+        <img class="path-2093-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-2094-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-2095-C61RwL" src="img/path-1404@1x.png" />
+        <img class="path-2096-C61RwL" src="img/path-1418@1x.png" />
+        <img class="path-2097-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-2098-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-2099-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-2100-C61RwL" src="img/path-1422@1x.png" />
+        <img class="path-2101-C61RwL" src="img/path-2055@1x.png" />
+        <img class="path-2102-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-2103-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-2104-C61RwL" src="img/path-1483@1x.png" />
+        <img class="path-2105-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-2106-C61RwL" src="img/path-1391@1x.png" />
+        <img class="path-2107-C61RwL" src="img/path-1353@1x.png" />
+        <img class="path-2108-C61RwL" src="img/path-1353@1x.png" />
+        <img class="path-2109-C61RwL" src="img/path-2055@1x.png" />
+        <img class="path-2110-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-2111-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-2112-C61RwL" src="img/path-1776@1x.png" />
+        <img class="path-2113-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-2114-C61RwL" src="img/path-1403@1x.png" />
+        <img class="path-2115-C61RwL" src="img/path-1403@1x.png" />
+        <img class="path-2116-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-2117-C61RwL" src="img/path-1453@1x.png" />
+        <img class="path-2118-C61RwL" src="img/path-1408@1x.png" />
+        <img class="path-2119-C61RwL" src="img/path-2055@1x.png" />
+        <img class="path-2120-C61RwL" src="img/path-1414@1x.png" />
+        <img class="path-2121-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-2122-C61RwL" src="img/path-1367@1x.png" />
+        <img class="path-2123-C61RwL" src="img/path-1348@1x.png" />
+        <img class="path-2124-C61RwL" src="img/path-1337@1x.png" />
+        <img class="path-2125-C61RwL" src="img/path-1354@1x.png" />
+        <img class="path-2126-C61RwL" src="img/path-1338@1x.png" />
+        <img class="path-2127-C61RwL" src="img/path-1345@1x.png" />
+        <img class="path-2128-C61RwL" src="img/path-1684@1x.png" />
+        <img class="path-2129-C61RwL" src="img/path-2129@1x.png" />
+        <img class="path-2130-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-2131-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-2132-C61RwL" src="img/path-2129@1x.png" />
+        <img class="path-2133-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-2134-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-2135-C61RwL" src="img/path-2129@1x.png" />
+        <img class="path-2136-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-2137-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-2138-C61RwL" src="img/path-2129@1x.png" />
+        <img class="path-2139-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-2140-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-2141-C61RwL" src="img/path-2129@1x.png" />
+        <img class="path-2142-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-2143-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-2144-C61RwL" src="img/path-2129@1x.png" />
+        <img class="path-2145-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-2146-C61RwL" src="img/path-1633@1x.png" />
+        <img class="path-2147-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-2148-C61RwL" src="img/path-1502@1x.png" />
+        <img class="path-2149-C61RwL" src="img/path-2149@1x.png" />
+        <img class="path-2150-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-2151-C61RwL" src="img/path-1633@1x.png" />
+        <img class="path-2152-C61RwL" src="img/path-2129@1x.png" />
+        <img class="path-2153-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-2154-C61RwL" src="img/path-2154@1x.png" />
+        <img class="path-2155-C61RwL" src="img/path-2129@1x.png" />
+        <img class="path-2156-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-2157-C61RwL" src="img/path-1526@1x.png" />
+        <img class="path-2158-C61RwL" src="img/path-2129@1x.png" />
+        <img class="path-2159-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-2160-C61RwL" src="img/path-1520@1x.png" />
+        <img class="path-2161-C61RwL" src="img/path-2129@1x.png" />
+        <img class="path-2162-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-2163-C61RwL" src="img/path-1502@1x.png" />
+        <img class="path-2164-C61RwL" src="img/path-2164@1x.png" />
+        <img class="path-2165-C61RwL" src="img/path-2165@1x.png" />
+        <img class="path-2166-C61RwL" src="img/path-1246@1x.png" />
+        <img class="path-2167-C61RwL" src="img/path-1271@1x.png" />
+        <img class="path-2168-C61RwL" src="img/path-1312@1x.png" />
+        <img class="path-2169-C61RwL" src="img/path-1311@1x.png" />
+        <img class="path-2170-C61RwL" src="img/path-2170@1x.png" />
+        <img class="path-2171-C61RwL" src="img/path-1395@1x.png" />
+        <img class="path-2172-C61RwL" src="img/path-1413@1x.png" />
+        <img class="path-2173-C61RwL" src="img/path-2173@1x.png" />
+        <img class="path-2174-C61RwL" src="img/path-1395@1x.png" />
+        <img class="path-2175-C61RwL" src="img/path-1413@1x.png" />
+        <img class="path-2176-C61RwL" src="img/path-2173@1x.png" />
+        <img class="path-2177-C61RwL" src="img/path-1395@1x.png" />
+        <img class="path-2178-C61RwL" src="img/path-2178@1x.png" />
+        <img class="path-2179-C61RwL" src="img/path-1489@1x.png" />
+        <img class="path-2180-C61RwL" src="img/path-2154@1x.png" />
+        <img class="path-2181-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-2182-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-2183-C61RwL" src="img/path-2154@1x.png" />
+        <img class="path-2184-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-2185-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-2186-C61RwL" src="img/path-2154@1x.png" />
+        <img class="path-2187-C61RwL" src="img/path-1503@1x.png" />
+        <img class="path-2188-C61RwL" src="img/path-1504@1x.png" />
+        <img class="path-2189-C61RwL" src="img/path-2189@1x.png" />
+        <div class="ellipse-9-C61RwL"></div>
+        <img class="path-2190-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-224-C61RwL"></div>
+        <img class="path-2191-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-225-C61RwL"></div>
+        <img class="path-2192-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-226-C61RwL"></div>
+        <img class="path-2193-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-227-C61RwL"></div>
+        <img class="path-2194-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-228-C61RwL"></div>
+        <img class="path-2195-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-229-C61RwL"></div>
+        <img class="path-2196-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-230-C61RwL"></div>
+        <img class="path-2197-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-231-C61RwL"></div>
+        <img class="path-2198-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-232-C61RwL"></div>
+        <img class="path-2199-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-233-C61RwL"></div>
+        <div class="ellipse-10-C61RwL"></div>
+        <img class="path-2200-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2201-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2202-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2203-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2204-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2205-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2206-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2207-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2208-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2209-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2210-C61RwL" src="img/path-2210@1x.png" />
+        <div class="ellipse-11-C61RwL"></div>
+        <img class="path-2211-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-234-C61RwL"></div>
+        <img class="path-2212-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-235-C61RwL"></div>
+        <img class="path-2213-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-236-C61RwL"></div>
+        <img class="path-2214-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-237-C61RwL"></div>
+        <img class="path-2215-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-238-C61RwL"></div>
+        <img class="path-2216-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-239-C61RwL"></div>
+        <img class="path-2217-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-240-C61RwL"></div>
+        <img class="path-2218-C61RwL" src="img/path-2190@1x.png" />
+        <div class="ellipse-12-C61RwL"></div>
+        <img class="path-2219-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2220-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2221-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2222-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2223-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2224-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2225-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2226-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-241-C61RwL"></div>
+        <img class="path-2227-C61RwL" src="img/path-2227@1x.png" />
+        <div class="ellipse-13-C61RwL"></div>
+        <img class="path-2228-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-242-C61RwL"></div>
+        <img class="path-2229-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-243-C61RwL"></div>
+        <img class="path-2230-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-244-C61RwL"></div>
+        <img class="path-2231-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-245-C61RwL"></div>
+        <img class="path-2232-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-246-C61RwL"></div>
+        <img class="path-2233-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-247-C61RwL"></div>
+        <img class="path-2234-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-248-C61RwL"></div>
+        <img class="path-2235-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-249-C61RwL"></div>
+        <img class="path-2236-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-250-C61RwL"></div>
+        <img class="path-2237-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-251-C61RwL"></div>
+        <div class="ellipse-14-C61RwL"></div>
+        <img class="path-2238-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2239-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2240-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2241-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2242-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2243-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2244-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2245-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2246-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2247-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2248-C61RwL" src="img/path-2248@1x.png" />
+        <div class="ellipse-15-C61RwL"></div>
+        <img class="path-2249-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-252-C61RwL"></div>
+        <img class="path-2250-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-253-C61RwL"></div>
+        <img class="path-2251-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-254-C61RwL"></div>
+        <div class="ellipse-16-C61RwL"></div>
+        <img class="path-2252-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2253-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2254-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2255-C61RwL" src="img/path-2255@1x.png" />
+        <div class="ellipse-17-C61RwL"></div>
+        <img class="path-2256-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-255-C61RwL"></div>
+        <div class="ellipse-18-C61RwL"></div>
+        <img class="path-2257-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2258-C61RwL" src="img/path-2258@1x.png" />
+        <div class="ellipse-19-C61RwL"></div>
+        <img class="path-2259-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-256-C61RwL"></div>
+        <img class="path-2260-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-257-C61RwL"></div>
+        <div class="ellipse-20-C61RwL"></div>
+        <img class="path-2261-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2262-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2263-C61RwL" src="img/path-2263@1x.png" />
+        <div class="ellipse-21-C61RwL"></div>
+        <img class="path-2264-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-258-C61RwL"></div>
+        <img class="path-2265-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-259-C61RwL"></div>
+        <img class="path-2266-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-260-C61RwL"></div>
+        <img class="path-2267-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-261-C61RwL"></div>
+        <img class="path-2268-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-262-C61RwL"></div>
+        <img class="path-2269-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-263-C61RwL"></div>
+        <div class="ellipse-22-C61RwL"></div>
+        <img class="path-2270-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2271-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2272-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2273-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2274-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2275-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-264-C61RwL"></div>
+        <div class="ellipse-23-C61RwL"></div>
+        <div class="ellipse-24-C61RwL"></div>
+        <div class="rectangle-265-C61RwL"></div>
+        <img class="path-2276-C61RwL" src="img/path-2276@1x.png" />
+        <div class="rectangle-266-C61RwL"></div>
+        <img class="path-2277-C61RwL" src="img/path-2276@1x.png" />
+        <div class="rectangle-267-C61RwL"></div>
+        <img class="path-2278-C61RwL" src="img/path-2276@1x.png" />
+        <div class="rectangle-268-C61RwL"></div>
+        <img class="path-2279-C61RwL" src="img/path-2276@1x.png" />
+        <div class="rectangle-269-C61RwL"></div>
+        <img class="path-2280-C61RwL" src="img/path-2276@1x.png" />
+        <div class="rectangle-270-C61RwL"></div>
+        <img class="path-2281-C61RwL" src="img/path-2276@1x.png" />
+        <div class="rectangle-271-C61RwL"></div>
+        <img class="path-2282-C61RwL" src="img/path-2282@1x.png" />
+        <img class="path-2283-C61RwL" src="img/path-2276@1x.png" />
+        <img class="path-2284-C61RwL" src="img/path-2276@1x.png" />
+        <img class="path-2285-C61RwL" src="img/path-2276@1x.png" />
+        <img class="path-2286-C61RwL" src="img/path-2276@1x.png" />
+        <img class="path-2287-C61RwL" src="img/path-2276@1x.png" />
+        <img class="path-2288-C61RwL" src="img/path-2276@1x.png" />
+        <img class="path-2289-C61RwL" src="img/path-2276@1x.png" />
+        <img class="path-2290-C61RwL" src="img/path-2282@1x.png" />
+        <img class="path-2291-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2292-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2293-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2294-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2295-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2296-C61RwL" src="img/path-2190@1x.png" />
+        <img class="path-2297-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-272-C61RwL"></div>
+        <div class="rectangle-273-C61RwL"></div>
+        <img class="path-2298-C61RwL" src="img/path-2298@1x.png" />
+        <div class="ellipse-25-C61RwL"></div>
+        <img class="path-2299-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-274-C61RwL"></div>
+        <img class="path-2300-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-275-C61RwL"></div>
+        <img class="path-2301-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-276-C61RwL"></div>
+        <img class="path-2302-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-277-C61RwL"></div>
+        <img class="path-2303-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-278-C61RwL"></div>
+        <img class="path-2304-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-279-C61RwL"></div>
+        <img class="path-2305-C61RwL" src="img/path-2190@1x.png" />
+        <div class="rectangle-280-C61RwL"></div>
+        <img class="path-2306-C61RwL" src="img/path-2276@1x.png" />
+        <div class="ellipse-26-C61RwL"></div>
+        <img class="path-2307-C61RwL" src="img/path-2307@1x.png" />
+        <div class="rectangle-281-C61RwL"></div>
+        <img class="path-2308-C61RwL" src="img/path-2307@1x.png" />
+        <div class="group-292-C61RwL">
+          <div class="group-267-54rxDA">
+            <div class="rectangle-282-A5amm5"></div>
+            <div class="group-266-A5amm5"></div>
+          </div>
+          <div class="group-268-54rxDA">
+            <div class="rectangle-283-zEOdBx"></div>
+            <img class="path-2310-zEOdBx" src="img/path-2310@1x.png" />
+          </div>
+          <div class="group-269-54rxDA">
+            <div class="rectangle-284-xb4NyZ"></div>
+            <img class="rectangle-285-xb4NyZ" src="img/rectangle-285@1x.png" />
+          </div>
+          <div class="group-270-54rxDA">
+            <img class="path-2311-cl0Oof" src="img/path-2311@1x.png" />
+            <img class="path-2312-cl0Oof" src="img/path-2312@1x.png" />
+          </div>
+          <div class="group-271-54rxDA">
+            <div class="rectangle-286-eTXDG6"></div>
+            <img class="path-2313-eTXDG6" src="img/path-2313@1x.png" />
+          </div>
+          <div class="group-273-54rxDA">
+            <div class="rectangle-287-qV18oP"></div>
+            <div class="group-272-qV18oP"></div>
+          </div>
+          <div class="group-274-54rxDA">
+            <div class="rectangle-288-MszwxP"></div>
+            <img class="rectangle-289-MszwxP" src="img/rectangle-289@1x.png" />
+          </div>
+          <div class="group-276-54rxDA">
+            <div class="rectangle-290-wyi8mL"></div>
+            <div class="group-275-wyi8mL"></div>
+          </div>
+          <div class="group-277-54rxDA">
+            <div class="rectangle-291-9Qi0gW"></div>
+            <img class="rectangle-292-9Qi0gW" src="img/rectangle-289@1x.png" />
+          </div>
+          <div class="group-279-54rxDA">
+            <div class="rectangle-293-dBGBpg"></div>
+            <div class="group-278-dBGBpg"></div>
+          </div>
+          <div class="group-281-54rxDA">
+            <div class="rectangle-294-8kvVC8"></div>
+            <div class="group-280-8kvVC8"></div>
+          </div>
+          <div class="group-282-54rxDA">
+            <div class="rectangle-295-xqUczr"></div>
+            <img class="rectangle-296-xqUczr" src="img/rectangle-285@1x.png" />
+          </div>
+          <div class="group-284-54rxDA">
+            <div class="rectangle-297-n18SIe"></div>
+            <img class="path-2318-n18SIe" src="img/path-2318@1x.png" />
+            <div class="rectangle-298-n18SIe"></div>
+            <div class="group-283-n18SIe"></div>
+          </div>
+          <img class="group-285-54rxDA" src="img/group-285@1x.png" />
+          <img class="group-286-54rxDA" src="img/group-286@1x.png" />
+          <img class="group-287-54rxDA" src="img/group-287@1x.png" />
+          <img class="group-288-54rxDA" src="img/group-288@1x.png" />
+          <img class="group-289-54rxDA" src="img/group-289@1x.png" />
+          <img class="group-290-54rxDA" src="img/group-290@1x.png" />
+          <img class="group-291-54rxDA" src="img/group-291@1x.png" />
+        </div>
+        <img class="image-17-C61RwL" src="img/image-17@1x.png" />
+        <img class="wireframs-C61RwL" src="img/wireframs@1x.png" />
+        <img class="wireframes2-C61RwL" src="img/wireframes2@1x.png" />
+        <img class="low-fedelity-C61RwL" src="img/lowfedelity@1x.png" />
+        <img class="image-18-C61RwL" src="img/image-18@1x.png" />
+        <div class="httpsxdado-3fc85-8489-C61RwL">
+          https://xd.adobe.com/view/d1daf2b6-78ef-49f6-85a4-0f10dcc3fc85-8489/
+        </div>
+        <div class="x11-button-styles-C61RwL">
+          <img class="line-26-RhJg9q" src="img/line-9@1x.png" />
+          <div class="button-styles-RhJg9q">Button Styles</div>
+          <img class="path-20-RhJg9q" src="img/path-20@1x.png" />
+        </div>
+        <div class="x10-images-samples-C61RwL">
+          <img class="line-27-8DlqtD" src="img/line-9@1x.png" />
+          <div class="images-samples-8DlqtD">Images Samples</div>
+          <img
+            class="how-the-gr-re-company-8DlqtD"
+            src="img/how-the-grinch-stole-christmas-childrens-theatre-company@1x.png"
+          />
+          <img class="jan-tinneb-q-unsplash-8DlqtD" src="img/jan-tinneberg-3-vhy5-5lxq-unsplash@1x.png" />
+          <img class="x133878-8DlqtD" src="img/133878@1x.png" />
+          <img class="austin-pac-y-unsplash-8DlqtD" src="img/austin-pacheco-ftl07gm9q7y-unsplash@1x.png" />
+          <img class="x3-wizard-o-dan-norman-8DlqtD" src="img/3-wizard-of-oz-2015-photo-by-dan-norman@1x.png" />
+          <img class="steven-lib-8-unsplash-8DlqtD" src="img/steven-libralon-do1gqljlnk8-unsplash@1x.png" />
+          <img class="x20130227-cinderella-8DlqtD" src="img/20130227--130228ae-children-s-theatre-cinderella@1x.png" />
+          <img class="bermix-stu-s-unsplash-8DlqtD" src="img/bermix-studio-p-hob0z-1bs-unsplash@1x.png" />
+        </div>
+        <div class="x09-graphic-patterns-C61RwL">
+          <img class="line-21-xlC68B" src="img/line-9@1x.png" />
+          <div class="graphic-patterns-xlC68B">Graphic Patterns</div>
+          <img class="mark-teach-i-unsplash-xlC68B" src="img/mark-teachey-tfiqz2gfevi-unsplash@1x.png" />
+          <img class="ricardo-go-i-unsplash-xlC68B" src="img/ricardo-gomez-angel-tpvlvy67vli-unsplash@1x.png" />
+          <img class="nick-fewin-4-unsplash-xlC68B" src="img/nick-fewings-xivsoswbfx4-unsplash@1x.png" />
+          <img class="rob-laught-m-unsplash-xlC68B" src="img/rob-laughter-ww1jsinxgwm-unsplash@1x.png" />
+        </div>
+        <div class="x08-color-gradient-C61RwL">
+          <img class="line-20-Dxqyaj" src="img/line-9@1x.png" />
+          <div class="color-gradient-Dxqyaj">COLOR GRADIENT</div>
+          <img class="path-60-Dxqyaj" src="img/path-60@1x.png" />
+        </div>
+        <div class="x07-color-palette-C61RwL">
+          <div class="color4-xm5nNY">
+            <div class="c9-b240-YcONXK din2014-regular-normal-white-11px">#C9B240</div>
+            <div class="rectangle-8-YcONXK"></div>
+          </div>
+          <div class="primary-colors-xm5nNY">
+            <div class="primary-colors-DlEQB2">Primary Colors</div>
+            <div class="rectangle-20-DlEQB2"></div>
+            <img class="path-62-DlEQB2" src="img/path-62@1x.png" />
+            <div class="rectangle-18-DlEQB2"></div>
+            <img class="line-2-DlEQB2" src="img/line-1@1x.png" />
+          </div>
+          <div class="secondary-colors-xm5nNY">
+            <div class="secondary-colors-T2eiFB">Secondary Colors</div>
+            <div class="rectangle-17-T2eiFB"></div>
+            <div class="rectangle-16-T2eiFB"></div>
+            <img class="path-68-T2eiFB" src="img/path-68@1x.png" />
+            <img class="line-3-T2eiFB" src="img/line-1@1x.png" />
+          </div>
+          <div class="base-colors-xm5nNY">Base Colors</div>
+          <div class="color1-xm5nNY">
+            <div class="x383680-7ftDIS din2014-regular-normal-white-11px">#383680</div>
+            <img class="path-63-7ftDIS" src="img/path-63@1x.png" />
+          </div>
+          <div class="color2-xm5nNY">
+            <div class="x716-fb3-BvhSdx din2014-regular-normal-white-11px">#716FB3</div>
+            <div class="x716-fb3-cHZRe7 din2014-regular-normal-white-11px">#716FB3</div>
+            <img class="path-24-BvhSdx" src="img/path-24@1x.png" />
+          </div>
+          <div class="color3-xm5nNY">
+            <div class="x5956-a6-HHhJcv din2014-regular-normal-white-11px">#5956A6</div>
+            <div class="x5956-a6-u82JiT din2014-regular-normal-white-11px">#5956A6</div>
+            <div class="rectangle-6-HHhJcv"></div>
+            <div class="x919191-HHhJcv din2014-regular-normal-white-11px">#919191</div>
+            <div class="ededed-HHhJcv din2014-regular-normal-white-11px">#EDEDED</div>
+          </div>
+          <div class="color5-xm5nNY">
+            <div class="rectangle-10-fEJMRr"></div>
+            <div class="d4-c26-e-fEJMRr din2014-regular-normal-white-11px">#D4C26E</div>
+            <div class="c9-b240-fEJMRr din2014-regular-normal-white-11px">#C9B240</div>
+            <div class="ffec91-fEJMRr din2014-regular-normal-white-11px">#FFEC91<br /></div>
+            <div class="d4-c26-e-LG8PNz din2014-regular-normal-white-11px">#D4C26E</div>
+          </div>
+          <img class="line-1-xm5nNY" src="img/line-1@1x.png" />
+          <img class="line-4-xm5nNY" src="img/line-4@1x.png" />
+          <div class="color-palette-xm5nNY timesnewroman-regular-normal-storm-dust-19px">COLOR PALETTE</div>
+        </div>
+        <div class="x06-button-states-C61RwL">
+          <img class="line-23-cIn1Yc" src="img/line-9@1x.png" />
+          <div class="button-states-cIn1Yc timesnewroman-regular-normal-storm-dust-19px">Button States</div>
+        </div>
+        <img class="line-22-C61RwL" src="img/line-9@1x.png" />
+        <div class="iconography-C61RwL timesnewroman-regular-normal-storm-dust-19px">Iconography</div>
+        <div class="x04-brand-logo-C61RwL">
+          <img class="line-12-9iNWvI" src="img/line-9@1x.png" />
+          <div class="brand-logo-9iNWvI timesnewroman-regular-normal-storm-dust-19px">BRAND LOGO</div>
+          <div class="rectangle-21-9iNWvI"></div>
+          <div class="logo-on-white-9iNWvI">Logo on white</div>
+          <div class="logo-on-dark-9iNWvI">Logo on dark</div>
+          <img class="line-13-9iNWvI" src="img/line-13@1x.png" />
+          <img class="line-14-9iNWvI" src="img/line-13@1x.png" />
+        </div>
+        <div class="x03-typography-C61RwL">
+          <img class="line-31-TIiNZU" src="img/line-31@1x.png" />
+          <img class="line-32-TIiNZU" src="img/line-31@1x.png" />
+          <img class="line-33-TIiNZU" src="img/line-31@1x.png" />
+          <img class="line-34-TIiNZU" src="img/line-31@1x.png" />
+          <div class="type-description-TIiNZU">
+            <img class="line-9-nxi20t" src="img/line-9@1x.png" />
+            <div class="lorem-ipsu-a-takimata-nxi20t">
+              <span class="span0-ssfCpe"
+                >Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+                ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+                dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+                clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.<br /></span
+              ><span class="span1-ssfCpe">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed.</span>
+            </div>
+            <div class="typography-nxi20t">Typography</div>
+          </div>
+          <div class="healine-v1-TIiNZU">
+            <img class="line-10-I6hJx8" src="img/line-10@1x.png" />
+            <div class="headline-I6hJx8">Headline</div>
+            <div class="sub-headline-I6hJx8">Sub-headline -</div>
+            <div class="times-new--ular-24-pt-I6hJx8 din2014-demi-normal-dove-gray-20px">Times New Regular 24 pt)</div>
+            <div class="x-times-new-bold-48-pt-I6hJx8 din2014-demi-normal-dove-gray-20px">(Times New Bold 48 pt)</div>
+          </div>
+          <div class="headline-v2-TIiNZU">
+            <img class="line-29-TAqryu" src="img/line-10@1x.png" />
+            <div class="headline-TAqryu">Headline</div>
+            <div class="sub-headline-TAqryu">Sub-headline</div>
+            <div class="x-open-sans-bold-36-pt-TAqryu din2014-demi-normal-dove-gray-20px">(Open Sans Bold 36 pt)</div>
+            <div class="x-open-sans-24-pt-TAqryu din2014-demi-normal-dove-gray-20px">(Open Sans 24 pt)</div>
+          </div>
+          <div class="typography-body-copy-TIiNZU">
+            <img class="line-28-kRvWzQ" src="img/line-28@1x.png" />
+            <div class="lorem-ipsu-a-takimata-kRvWzQ">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+              et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+              Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+              amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+              aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+              gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.<br />Lorem ipsum dolor sit amet,
+              consetetur sadipscing elitr, sed.
+            </div>
+            <div class="typography-body-copy-kRvWzQ timesnewroman-regular-normal-storm-dust-19px">
+              Typography Body Copy
+            </div>
+            <div class="this-is-a--gular-link-kRvWzQ">This is a regular link</div>
+            <div class="x-open-sans-reg-14-pt-kRvWzQ din2014-demi-normal-dove-gray-20px">(Open Sans Reg 14 pt)</div>
+          </div>
+          <div class="quote-TIiNZU">
+            <div class="this-is-a--ote-author-m1D9C5">
+              “This is a how you would stylize a meaningful quote” <br />
+              - Author
+            </div>
+            <div class="x-open-sans-ight-18-pt-m1D9C5 din2014-demi-normal-dove-gray-20px">(Open Sans Light 18 pt)</div>
+          </div>
+        </div>
+        <div class="x02-ui-styl-adjectives-C61RwL">
+          <img class="line-18-TSayCB" src="img/line-9@1x.png" />
+          <div class="ui-style-adjectives-TSayCB timesnewroman-regular-normal-storm-dust-19px">UI Style Adjectives</div>
+          <div class="fun-TSayCB">Fun</div>
+          <div class="playful-TSayCB">Playful</div>
+          <div class="creative-TSayCB">Creative</div>
+          <div class="simple-TSayCB">SIMPLE</div>
+          <div class="helpful-TSayCB">Helpful</div>
+        </div>
+        <div class="x01-ui-styl--direction-C61RwL">
+          <img class="line-11-W29gQM" src="img/line-9@1x.png" />
+          <div class="theatre-ch--usability-W29gQM">
+            Theatre, children’s theatre in particular, is meant to be fun! We want first and foremost for the website to
+            reflect that by immediately grabbing attention. But on the other hand there’s no fun to be had if you can’t
+            find what you need, so clear usability is of course also extremely high priority. So, what we need is a
+            website that immediately communicates the magic of theatre while also helping the users experience it.
+          </div>
+          <div class="ui-style-direction-W29gQM timesnewroman-regular-normal-storm-dust-19px">UI STYLE DIRECTION</div>
+        </div>
+        <div class="x0-ui-style-tile-C61RwL">
+          <div class="ui-style-t-th-theatre-PMcWT1">UI STYLE TILE : Valley Youth Theatre</div>
+          <div class="date-PMcWT1">Date</div>
+          <div class="trilogy-ed-vices-2019-PMcWT1">Trilogy Education Services @2019</div>
+          <img class="line-5-PMcWT1" src="img/line-5@1x.png" />
+          <img class="line-6-PMcWT1" src="img/line-6@1x.png" />
+          <img class="line-7-PMcWT1" src="img/line-6@1x.png" />
+          <img class="line-8-PMcWT1" src="img/line-8@1x.png" />
+          <img class="line-15-PMcWT1" src="img/line-15@1x.png" />
+          <img class="line-24-PMcWT1" src="img/line-24@1x.png" />
+          <img class="line-30-PMcWT1" src="img/line-30@1x.png" />
+          <img class="line-25-PMcWT1" src="img/line-25@1x.png" />
+          <img class="line-17-PMcWT1" src="img/line-15@1x.png" />
+          <img class="line-16-PMcWT1" src="img/line-16@1x.png" />
+          <img class="line-19-PMcWT1" src="img/line-19@1x.png" />
+        </div>
+        <img class="output-onl-nepngtools-C61RwL" src="img/output-onlinepngtools@1x.png" />
+        <div class="cinema-C61RwL">
+          <img class="path-25-pTHDO4" src="img/path-25@1x.png" />
+          <img class="path-26-pTHDO4" src="img/path-25@1x.png" />
+          <img class="path-27-pTHDO4" src="img/path-25@1x.png" />
+          <img class="path-28-pTHDO4" src="img/path-25@1x.png" />
+          <img class="path-29-pTHDO4" src="img/path-25@1x.png" />
+          <img class="path-30-pTHDO4" src="img/path-30@1x.png" />
+          <img class="path-31-pTHDO4" src="img/path-31@1x.png" />
+        </div>
+        <div class="group-125-C61RwL">
+          <div class="cinema-kWlObw">
+            <img class="path-25-QX94Lt" src="img/path-25-1@1x.png" />
+            <img class="path-26-QX94Lt" src="img/path-25-1@1x.png" />
+            <img class="path-27-QX94Lt" src="img/path-25-1@1x.png" />
+            <img class="path-28-QX94Lt" src="img/path-25-1@1x.png" />
+            <img class="path-29-QX94Lt" src="img/path-25-1@1x.png" />
+            <img class="path-30-QX94Lt" src="img/path-30-1@1x.png" />
+            <img class="path-31-QX94Lt" src="img/path-31-1@1x.png" />
+          </div>
+        </div>
+        <div class="music-notes-C61RwL">
+          <img class="path-32-m0cHdD" src="img/path-32@1x.png" />
+          <img class="path-33-m0cHdD" src="img/path-33@1x.png" />
+        </div>
+        <div class="group-126-C61RwL">
+          <div class="music-notes-JNQDra">
+            <img class="path-32-xKTnsv" src="img/path-32-1@1x.png" />
+            <img class="path-33-xKTnsv" src="img/path-33-1@1x.png" />
+          </div>
+        </div>
+        <div class="group-127-C61RwL">
+          <div class="heart-2zqKZg">
+            <img class="path-34-ke6jgs" src="img/path-34@1x.png" />
+            <div class="group-81-ke6jgs"></div>
+          </div>
+        </div>
+        <div class="heart-C61RwL">
+          <img class="path-34-dJXOwS" src="img/path-34-1@1x.png" />
+          <div class="group-81-dJXOwS"></div>
+        </div>
+        <div class="group-128-C61RwL">
+          <div class="theatre-ZxF0F6">
+            <div class="group-83-CEnZay">
+              <div class="group-82-gFFE8q"></div>
+            </div>
+            <div class="group-85-CEnZay">
+              <div class="group-84-mw63BJ"></div>
+            </div>
+            <div class="group-87-CEnZay">
+              <div class="group-86-nlWh6o"></div>
+            </div>
+            <div class="group-89-CEnZay">
+              <div class="group-88-yGvEL1"></div>
+            </div>
+            <div class="group-91-CEnZay">
+              <div class="group-90-xzW90u"></div>
+            </div>
+            <div class="group-93-CEnZay">
+              <div class="group-92-YSsvxC"></div>
+            </div>
+            <div class="group-95-CEnZay">
+              <div class="group-94-P8JD8n"></div>
+            </div>
+            <div class="group-97-CEnZay">
+              <div class="group-96-r6zIvM"></div>
+            </div>
+            <div class="group-99-CEnZay">
+              <div class="group-98-be0ftW"></div>
+            </div>
+            <div class="group-101-CEnZay">
+              <div class="group-100-WdDeRT"></div>
+            </div>
+          </div>
+        </div>
+        <div class="theatre-C61RwL">
+          <div class="group-83-APxLdm">
+            <div class="group-82-0OUv0w"></div>
+          </div>
+          <div class="group-85-APxLdm">
+            <div class="group-84-HqmTZx"></div>
+          </div>
+          <div class="group-87-APxLdm">
+            <div class="group-86-o6n7v0"></div>
+          </div>
+          <div class="group-89-APxLdm">
+            <div class="group-88-YNExd8"></div>
+          </div>
+          <div class="group-91-APxLdm">
+            <div class="group-90-R2Et4y"></div>
+          </div>
+          <div class="group-93-APxLdm">
+            <div class="group-92-yfuIXg"></div>
+          </div>
+          <div class="group-95-APxLdm">
+            <div class="group-94-o7THWV"></div>
+          </div>
+          <div class="group-97-APxLdm">
+            <div class="group-96-Dzz2G5"></div>
+          </div>
+          <div class="group-99-APxLdm">
+            <div class="group-98-vKufTf"></div>
+          </div>
+          <div class="group-101-APxLdm">
+            <div class="group-100-bukaAa"></div>
+          </div>
+        </div>
+        <div class="group-130-C61RwL">
+          <div class="bonfire-howkCj">
+            <div class="group-104-KctqKX">
+              <img class="path-47-xQ9II3" src="img/path-47@1x.png" />
+              <img class="path-48-xQ9II3" src="img/path-48@1x.png" />
+              <img class="path-49-xQ9II3" src="img/path-48@1x.png" />
+            </div>
+          </div>
+        </div>
+        <div class="bonfire-C61RwL">
+          <div class="group-104-W4B5nB">
+            <img class="path-47-HqvCcp" src="img/path-47-1@1x.png" />
+            <img class="path-48-HqvCcp" src="img/path-48-1@1x.png" />
+            <img class="path-49-HqvCcp" src="img/path-48-1@1x.png" />
+          </div>
+        </div>
+        <div class="group-129-C61RwL">
+          <div class="sound-waves-kdwriU">
+            <div class="group-106-UcvHzi">
+              <div class="group-105-3xCP5H"></div>
+            </div>
+            <div class="group-108-UcvHzi">
+              <div class="group-107-ly5SiI"></div>
+            </div>
+            <div class="group-110-UcvHzi">
+              <div class="group-109-4FKHZr"></div>
+            </div>
+            <div class="group-112-UcvHzi">
+              <div class="group-111-avWXA2"></div>
+            </div>
+            <div class="group-114-UcvHzi">
+              <div class="group-113-PCfAx6"></div>
+            </div>
+            <div class="group-116-UcvHzi">
+              <div class="group-115-xEBnsX"></div>
+            </div>
+            <div class="group-118-UcvHzi">
+              <div class="group-117-uKlmPi"></div>
+            </div>
+            <div class="group-120-UcvHzi">
+              <div class="group-119-KtCVUz"></div>
+            </div>
+            <div class="group-122-UcvHzi">
+              <div class="group-121-pXocX2"></div>
+            </div>
+            <div class="group-124-UcvHzi">
+              <div class="group-123-BbvxSh"></div>
+            </div>
+          </div>
+        </div>
+        <div class="sound-waves-C61RwL">
+          <div class="group-106-66W20x">
+            <div class="group-105-8tfBkZ"></div>
+          </div>
+          <div class="group-108-66W20x">
+            <div class="group-107-330GKc"></div>
+          </div>
+          <div class="group-110-66W20x">
+            <div class="group-109-brZzxT"></div>
+          </div>
+          <div class="group-112-66W20x">
+            <div class="group-111-XHmm33"></div>
+          </div>
+          <div class="group-114-66W20x">
+            <div class="group-113-1o8e72"></div>
+          </div>
+          <div class="group-116-66W20x">
+            <div class="group-115-ZEJiyK"></div>
+          </div>
+          <div class="group-118-66W20x">
+            <div class="group-117-NxfCzc"></div>
+          </div>
+          <div class="group-120-66W20x">
+            <div class="group-119-2f7ZXr"></div>
+          </div>
+          <div class="group-122-66W20x">
+            <div class="group-121-oduFxR"></div>
+          </div>
+          <div class="group-124-66W20x">
+            <div class="group-123-GQl4pa"></div>
+          </div>
+        </div>
+        <div class="group-78-C61RwL"><div class="normal-hlxJRL">Normal</div></div>
+        <div class="group-79-C61RwL"><div class="hover-sbe5OJ">Hover</div></div>
+        <div class="group-102-C61RwL gray-border-3px"><div class="pressed-eYqyUC">Pressed</div></div>
+        <div class="group-103-C61RwL gray-border-3px"><div class="disabled-B08mCn">Disabled</div></div>
+        <div class="group-136-C61RwL"><div class="focus-xxRT71">Focus</div></div>
+        <div class="group-132-C61RwL gray-border-3px"><div class="pressd-KfAAKu">Pressd</div></div>
+        <div class="group-134-C61RwL"><div class="normal-xYSxTl">Normal</div></div>
+        <div class="group-135-C61RwL"><div class="dropdown-0VemYL">Dropdown</div></div>
+        <img class="path-64-C61RwL" src="img/path-64@1x.png" />
+        <img class="vyt-logo-white-C61RwL" src="img/vyt-logo-white@1x.png" />
+        <img class="image-19-C61RwL" src="img/image-19@1x.png" />
+        <div class="httpsxdado-36641-7fb5-C61RwL">
+          https://xd.adobe.com/view/2ae69edf-7d2c-4a79-97c0-3fd549a36641-7fb5/<br />
+        </div>
+        <div class="key-learni--project-f-C61RwL">
+          <span class="span0-QQLPQJ">Key Learnings<br /></span
+          ><span class="span1-QQLPQJ"
+            >Making contact with a stakeholder was crucial for the redesign because it emphasized the importance of
+            understanding the specific needs of your users.<br />It felt impactful to work on a redesign for a local
+            non-profit and made the whole project feel more purposeful - we’re designing solutions for real life
+            problems &amp; people.<br /><br /></span
+          ><span class="span2-QQLPQJ">Next Steps<br /></span
+          ><span class="span3-QQLPQJ"
+            >Further testing and development of secondary and tertiary pages.<br />Stakeholder design handoff
+            meeting.</span
+          >
+        </div>
+        <a href="vyt-stakeholder-interview.html"> <div class="rectangle-319-C61RwL"></div></a>
+        <div class="group-467-C61RwL">
+          <div class="group-394-veG9tg">
+            <div class="rectangle-331-iNg5x7"></div>
+            <img class="path-3935-iNg5x7" src="img/path-3935@1x.png" />
+          </div>
+          <div class="group-395-veG9tg">
+            <div class="rectangle-332-nU6TQ2"></div>
+            <img class="path-3936-nU6TQ2" src="img/path-3936@1x.png" />
+          </div>
+          <div class="group-396-veG9tg">
+            <div class="rectangle-333-a71krj"></div>
+            <img class="path-3937-a71krj" src="img/path-3937@1x.png" />
+          </div>
+          <div class="rectangle-334-veG9tg"></div>
+          <div class="group-398-veG9tg"><img class="group-397-3JjAEk" src="img/group-397@1x.png" /></div>
+          <img class="group-399-veG9tg" src="img/group-399@1x.png" />
+          <img class="group-400-veG9tg" src="img/group-400@1x.png" />
+          <div class="group-401-veG9tg">
+            <img class="path-4136-mWXIaI" src="img/path-4136@1x.png" />
+            <img class="path-4137-mWXIaI" src="img/path-4137@1x.png" />
+            <img class="path-4138-mWXIaI" src="img/path-4138@1x.png" />
+            <img class="path-4139-mWXIaI" src="img/path-4139@1x.png" />
+            <img class="path-4140-mWXIaI" src="img/path-4140@1x.png" />
+          </div>
+          <img class="group-402-veG9tg" src="img/group-402@1x.png" />
+          <img class="group-403-veG9tg" src="img/group-403@1x.png" />
+          <img class="group-404-veG9tg" src="img/group-404@1x.png" />
+          <img class="group-405-veG9tg" src="img/group-405@1x.png" />
+          <div class="rectangle-336-veG9tg"></div>
+          <img class="path-4642-veG9tg" src="img/path-4642@1x.png" />
+          <div class="ellipse-59-veG9tg"></div>
+          <div class="group-407-veG9tg">
+            <div class="group-406-9rAKdW"></div>
+          </div>
+          <div class="group-410-veG9tg">
+            <div class="group-409-RyPUwE">
+              <div class="group-408-jlhsrA"></div>
+            </div>
+          </div>
+          <div class="group-413-veG9tg">
+            <div class="group-412-LOOEl7">
+              <div class="group-411-pGwHEv"></div>
+            </div>
+          </div>
+          <div class="group-416-veG9tg">
+            <div class="group-415-x1TdWA">
+              <div class="group-414-SfOs2H"></div>
+            </div>
+          </div>
+          <div class="group-419-veG9tg">
+            <div class="group-418-9gqmbg">
+              <div class="group-417-JETfNF"></div>
+            </div>
+          </div>
+          <div class="group-422-veG9tg">
+            <div class="group-421-khx2bf">
+              <div class="group-420-JmeyBs"></div>
+            </div>
+          </div>
+          <div class="group-425-veG9tg">
+            <div class="group-424-a0xV4u">
+              <div class="group-423-tcNxaz"></div>
+            </div>
+          </div>
+          <div class="group-427-veG9tg">
+            <div class="group-426-QAoWb3"></div>
+          </div>
+          <div class="group-429-veG9tg">
+            <div class="group-428-0fJqek"></div>
+          </div>
+          <div class="group-431-veG9tg">
+            <div class="group-430-MzGK3b"></div>
+          </div>
+          <div class="group-433-veG9tg">
+            <div class="group-432-uJXTmO"></div>
+          </div>
+          <div class="group-434-veG9tg">
+            <img class="path-4650-QDGrnJ" src="img/path-4650@1x.png" />
+            <img class="path-4651-QDGrnJ" src="img/path-4651@1x.png" />
+            <img class="path-4652-QDGrnJ" src="img/path-4652@1x.png" />
+            <img class="path-4653-QDGrnJ" src="img/path-4653@1x.png" />
+            <img class="path-4654-QDGrnJ" src="img/path-4654@1x.png" />
+          </div>
+          <div class="group-435-veG9tg">
+            <img class="path-4655-jI8npq" src="img/path-4655@1x.png" />
+            <img class="path-4656-jI8npq" src="img/path-4656@1x.png" />
+            <img class="path-4657-jI8npq" src="img/path-4657@1x.png" />
+            <img class="path-4658-jI8npq" src="img/path-4658@1x.png" />
+            <img class="path-4659-jI8npq" src="img/path-4659@1x.png" />
+            <img class="path-4660-jI8npq" src="img/path-4660@1x.png" />
+            <img class="path-4661-jI8npq" src="img/path-4661@1x.png" />
+          </div>
+          <div class="group-436-veG9tg">
+            <img class="path-4662-Ehwa3J" src="img/path-4662@1x.png" />
+            <img class="path-4663-Ehwa3J" src="img/path-4663@1x.png" />
+            <img class="path-4664-Ehwa3J" src="img/path-4664@1x.png" />
+            <img class="path-4665-Ehwa3J" src="img/path-4665@1x.png" />
+            <img class="path-4666-Ehwa3J" src="img/path-4666@1x.png" />
+            <img class="path-4667-Ehwa3J" src="img/path-4667@1x.png" />
+            <img class="path-4668-Ehwa3J" src="img/path-4668@1x.png" />
+            <img class="path-4669-Ehwa3J" src="img/path-4656@1x.png" />
+            <img class="path-4670-Ehwa3J" src="img/path-4670@1x.png" />
+          </div>
+          <img class="group-437-veG9tg" src="img/group-437@1x.png" />
+          <div class="group-440-veG9tg">
+            <div class="group-439-JzbnAq">
+              <div class="group-438-vbAZRb"></div>
+            </div>
+          </div>
+          <div class="group-443-veG9tg">
+            <div class="group-442-Otg3AV">
+              <div class="group-441-BBSeEc"></div>
+            </div>
+          </div>
+          <div class="group-446-veG9tg">
+            <div class="group-445-5NjQiN">
+              <div class="group-444-f9sjAC"></div>
+            </div>
+          </div>
+          <div class="group-449-veG9tg">
+            <div class="group-448-tCynrl">
+              <div class="group-447-ZeQ5bD"></div>
+            </div>
+          </div>
+          <div class="group-452-veG9tg">
+            <div class="group-451-v3K7oh">
+              <div class="group-450-jQOD2g"></div>
+            </div>
+          </div>
+          <div class="group-455-veG9tg">
+            <div class="group-454-S4SQHy">
+              <div class="group-453-IglUQf"></div>
+            </div>
+          </div>
+          <div class="group-458-veG9tg">
+            <div class="group-457-wDqXd0">
+              <div class="group-456-OtFl92"></div>
+            </div>
+          </div>
+          <img class="group-459-veG9tg" src="img/group-459@1x.png" />
+          <img class="group-460-veG9tg" src="img/group-460@1x.png" />
+          <img class="group-461-veG9tg" src="img/group-461@1x.png" />
+          <img class="group-462-veG9tg" src="img/group-462@1x.png" />
+          <img class="group-463-veG9tg" src="img/group-463@1x.png" />
+          <img class="group-464-veG9tg" src="img/group-464@1x.png" />
+          <img class="group-465-veG9tg" src="img/group-465@1x.png" />
+          <img class="group-466-veG9tg" src="img/group-466@1x.png" />
+        </div>
+        <img class="mask-group-5-C61RwL" src="img/mask-group-5@1x.png" />
+        <img class="x4-C61RwL" src="img/4@1x.png" />
+        <img class="x5-C61RwL" src="img/5@1x.png" />
+        <img class="x6-C61RwL" src="img/6@1x.png" />
+        <img class="x7-C61RwL" src="img/7@1x.png" />
+        <img class="x1-C61RwL" src="img/1@1x.png" />
+        <img class="x2-C61RwL" src="img/2@1x.png" />
+        <img class="x3-C61RwL" src="img/3@1x.png" />
+        <img class="value-prop-C61RwL" src="img/value-prop@1x.png" />
+        <div class="back-to-the-top-C61RwL">Back to the Top</div>
+        <div class="back-to-the-top-VMr6Om">Back to the Top</div>
+      </div>
+    </div>
+  </body>
+</html>
